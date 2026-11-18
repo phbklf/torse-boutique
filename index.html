@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="TORSÉ – Kapseln mit Ceremonial-Matcha, Yuzu und Sakura für stilles Wasser. Ein Dreh. Ein Ritual.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="TORSÉ Boutique">
+<meta property="og:description" content="Ein Dreh. Ein Ritual. Kapseln für stilles Wasser.">
+<meta property="og:image" content="/images/hero.jpg">
+<title>TORSÉ Boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: heller Boutique-Shop nach dem Vorbild großer Kapselmarken. Weiß als Grundfläche, freigestellte Produkte auf hellen Karten, große helle Bildbanner, Schwarz nur für Text und Buttons. Bewusst ein fester heller Look. */
+:root {
+  --white: #ffffff;
+  --soft: #f5f4f0;
+  --soft-2: #eeece6;
+  --ink: #17171a;
+  --stone: #6f6c66;
+  --line: #e6e3dc;
+  --champagne: #a88a50;
+  --sage: #e3e8df;
+  --ivory: #f3efe6;
+  --blush: #f1e4e2;
+  --jade: #1f4a36;
+  --yuzu: #c99a1e;
+  --sakura: #c98a92;
+  --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-body: "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+img { max-width: 100%; display: block; }
+body { margin: 0; background: var(--white); color: var(--ink); font: 300 16px/1.6 var(--f-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--white); }
+.gut { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1240px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: 0.005em; }
+p { margin: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.label { font: 500 11.5px/1.3 var(--f-body); letter-spacing: 0.22em; text-transform: uppercase; color: var(--champagne); }
+.muted { color: var(--stone); }
+.price { font-family: var(--f-body); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* Kopf */
+.demo { background: var(--soft); color: var(--stone); text-align: center; font: 400 12px/1.4 var(--f-body); letter-spacing: 0.04em; padding-block: 8px; }
+header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--white); border-bottom: 1px solid var(--line); }
+.hbar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; min-height: 72px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand .mono { width: 34px; color: var(--ink); }
+.brand span { font-family: var(--f-display); font-size: 24px; letter-spacing: 0.28em; margin-right: -0.28em; }
+.nav { display: flex; gap: 30px; font-size: 14.5px; font-weight: 400; }
+.nav a { text-decoration: none; padding-block: 24px; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a.on { border-color: var(--ink); }
+.hright { display: flex; align-items: center; gap: 18px; font-size: 14px; }
+.icon-btn { width: 40px; height: 40px; border-radius: 50%; display: inline-grid; place-items: center; position: relative; }
+.icon-btn:hover { background: var(--soft); }
+.icon-btn svg { width: 21px; height: 21px; }
+.count { position: absolute; top: 2px; right: 0; min-width: 18px; height: 18px; border-radius: 9px; background: var(--ink); color: #fff; font: 500 10.5px/18px var(--f-body); text-align: center; padding-inline: 4px; }
+.count[data-n="0"] { display: none; }
+.menu-btn { display: none; }
+.mnav { display: none; }
+
+.view[hidden] { display: none !important; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: 500 14px/1 var(--f-body); letter-spacing: 0.02em; padding: 15px 28px; border-radius: 999px; border: 1px solid var(--ink); text-decoration: none; transition: background .2s, color .2s; white-space: nowrap; }
+.btn.dark { background: var(--ink); color: #fff; }
+.btn.dark:hover { background: #2e2e33; }
+.btn.line { background: transparent; color: var(--ink); }
+.btn.line:hover { background: var(--soft); }
+.btn.block { width: 100%; }
+.plus { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: #fff; display: inline-grid; place-items: center; font-size: 20px; line-height: 1; flex: none; transition: transform .2s; }
+.plus:hover { transform: scale(1.08); }
+
+/* Hero */
+.hero { padding-top: 0; }
+.hero-banner { position: relative; overflow: hidden; background: var(--sage); }
+.hero-banner img { width: 100%; aspect-ratio: 21/9; object-fit: cover; }
+.hero-copy { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 20px; padding-left: max(48px, env(safe-area-inset-left, 0px)); max-width: 620px; }
+.hero h1 { font-size: clamp(40px, 5.2vw, 72px); line-height: 1.04; }
+.hero h1 em { font-style: italic; color: var(--jade); }
+.hero p { max-width: 42ch; font-size: 17px; color: #3e3d39; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Sektionen */
+.sec { padding-block: 88px; }
+.sec.soft { background: var(--soft); }
+.sec-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+.sec-head.center { align-items: center; text-align: center; }
+.sec-head h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; }
+.sec-head p { font-size: 16px; color: var(--stone); max-width: 60ch; }
+
+/* Kategorie-Kacheln */
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tile { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; display: block; text-align: left; transition: transform .3s; }
+.tile:hover { transform: translateY(-3px); }
+.tile .tl { position: absolute; top: 20px; left: 22px; font-size: 18px; font-weight: 400; z-index: 2; }
+.tile .tl small { display: block; font-size: 13px; color: var(--stone); }
+.tile img { position: absolute; inset: 14% 8% 6%; width: 84%; height: 80%; object-fit: contain; filter: drop-shadow(0 18px 22px rgba(40,35,25,.16)); }
+.t-sage { background: var(--sage); } .t-ivory { background: var(--ivory); } .t-blush { background: var(--blush); }
+
+/* Sorten */
+.flavors { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 56px; align-items: center; }
+.fpanel { background: var(--soft); border-radius: 14px; padding: 48px 32px; display: grid; place-items: center; }
+.fpanel img { width: 100%; filter: drop-shadow(0 22px 26px rgba(40,35,25,.18)); }
+.flist { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.fl { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 22px 4px; border-bottom: 1px solid var(--line); text-align: left; width: 100%; transition: background .2s; }
+.fl:hover { background: var(--soft); }
+.fl .dot { width: 40px; height: 40px; border-radius: 50%; }
+.fl h3 { font-size: 24px; }
+.fl .no { font: 500 11px var(--f-body); letter-spacing: 0.2em; color: var(--champagne); text-transform: uppercase; }
+.fl p { font-size: 14.5px; color: var(--stone); }
+.fl .arrow { font-size: 22px; }
+
+/* Produktkarten */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 12px 12px 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; transition: box-shadow .25s, transform .25s; }
+.card:hover { box-shadow: 0 10px 30px rgba(30,25,15,.08); transform: translateY(-2px); }
+.card .ph { position: relative; background: var(--soft); border-radius: 10px; aspect-ratio: 1; display: grid; place-items: center; overflow: hidden; width: 100%; }
+.card .ph img { position: absolute; inset: 9%; width: 82%; height: 82%; object-fit: contain; filter: drop-shadow(0 14px 18px rgba(40,35,25,.15)); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.card:hover .ph img { transform: scale(1.04); }
+.badge { position: absolute; top: 10px; left: 10px; background: var(--champagne); color: #fff; font: 500 10.5px var(--f-body); letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 8px; border-radius: 4px; }
+.card .info { padding-inline: 4px; display: flex; flex-direction: column; gap: 3px; text-align: left; }
+.card h3 { font-family: var(--f-body); font-weight: 500; font-size: 16px; }
+.card .sub { font-size: 13.5px; color: var(--stone); }
+.card .row { display: flex; justify-content: space-between; align-items: center; padding-inline: 4px; margin-top: auto; }
+.card .price { font-size: 16px; }
+.swatches { display: flex; gap: 5px; margin-top: 4px; }
+.swatches i { width: 11px; height: 11px; border-radius: 50%; }
+.card-open { display: flex; flex-direction: column; gap: 12px; text-align: left; width: 100%; }
+
+/* Ritual */
+.ritual { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.ritual > img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 14px; }
+.steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.step { background: var(--soft); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.step .k { font-family: var(--f-display); font-size: 30px; color: var(--champagne); line-height: 1; }
+.step b { font-weight: 500; }
+.step span { font-size: 14.5px; color: var(--stone); }
+.water { margin-top: 20px; font-size: 14px; color: var(--stone); display: flex; gap: 10px; align-items: center; }
+.water::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--champagne); flex: none; }
+
+/* Flasche */
+.bottle-sec { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; align-items: center; }
+.bpanel { position: relative; background: var(--ivory); border-radius: 14px; aspect-ratio: 4/5; }
+.bpanel img { position: absolute; inset: 5%; width: 90%; height: 90%; object-fit: contain; filter: drop-shadow(0 26px 28px rgba(40,35,25,.18)); }
+.bottle-copy { display: flex; flex-direction: column; gap: 20px; }
+.bottle-copy h2 { font-size: clamp(32px, 4vw, 50px); line-height: 1.06; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.facts div { background: var(--soft); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 2px; }
+.facts b { font-family: var(--f-display); font-weight: 400; font-size: 26px; }
+.facts span { font-size: 13px; color: var(--stone); }
+
+/* Club-Banner */
+.club { position: relative; border-radius: 14px; overflow: hidden; background: var(--ivory); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+.club img { width: 100%; height: 100%; object-fit: cover; min-height: 420px; }
+.club .cc { padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+.club h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.08; }
+.club ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; color: #3e3d39; }
+.club li { display: flex; gap: 10px; align-items: baseline; }
+.club li::before { content: "✓"; color: var(--champagne); font-weight: 500; }
+
+/* Vorteile */
+.usps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.usp { display: flex; flex-direction: column; gap: 6px; padding: 22px; border-radius: 12px; background: var(--soft); }
+.usp b { font-weight: 500; }
+.usp span { font-size: 14px; color: var(--stone); }
+
+/* Shop */
+.shop-head { padding-block: 48px 20px; display: flex; flex-direction: column; gap: 10px; }
+.shop-head h1 { font-size: clamp(36px, 4.4vw, 56px); }
+.filters { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding-block: 14px 28px; }
+.filters .grp { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 400 14px var(--f-body); padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; background: var(--white); }
+.chip:hover { border-color: #bdb9b0; }
+.chip.on { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.chip i { width: 10px; height: 10px; border-radius: 50%; }
+.filters .sep { width: 1px; height: 26px; background: var(--line); }
+.count-note { margin-left: auto; font-size: 13.5px; color: var(--stone); }
+
+/* Produktseite */
+.crumbs { padding-block: 22px; font-size: 13px; color: var(--stone); display: flex; gap: 8px; flex-wrap: wrap; }
+.crumbs button { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.pdp { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: start; padding-bottom: 88px; }
+.gallery { display: flex; flex-direction: column; gap: 12px; }
+.stage { position: relative; background: var(--soft); border-radius: 14px; aspect-ratio: 1; overflow: hidden; }
+.stage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.stage img.cut { inset: 10%; width: 80%; height: 80%; object-fit: contain; filter: drop-shadow(0 22px 26px rgba(40,35,25,.18)); }
+.thumbs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.thumbs button { position: relative; background: var(--soft); border-radius: 10px; aspect-ratio: 1; overflow: hidden; border: 1px solid transparent; }
+.thumbs button.on { border-color: var(--ink); }
+.thumbs img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.thumbs img.cut { inset: 11%; width: 78%; height: 78%; object-fit: contain; }
+.buy { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 96px); display: flex; flex-direction: column; gap: 20px; }
+.buy h1 { font-size: clamp(32px, 3.4vw, 44px); line-height: 1.08; }
+.buy .price { font-size: 26px; }
+.buy .per { font-size: 13.5px; color: var(--stone); margin-left: 10px; font-weight: 300; }
+.opt { display: flex; flex-direction: column; gap: 10px; }
+.opt .olabel { font-size: 13.5px; font-weight: 500; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.sw { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; }
+.sw i { width: 14px; height: 14px; border-radius: 50%; }
+.sw.on { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.meter { display: flex; gap: 4px; align-items: center; }
+.meter i { width: 18px; height: 6px; border-radius: 3px; background: var(--soft-2); }
+.meter i.on { background: var(--champagne); }
+.meter span { margin-left: 10px; font-size: 13px; color: var(--stone); }
+.qtyrow { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; }
+.qty { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; }
+.qty button { width: 44px; height: 48px; font-size: 18px; }
+.qty output { width: 30px; text-align: center; font-variant-numeric: tabular-nums; }
+.perks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.perks span { background: var(--soft); border-radius: 10px; padding: 12px 14px; font-size: 13px; color: var(--stone); }
+details.acc { border-bottom: 1px solid var(--line); padding-block: 14px; }
+details.acc summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; font-size: 15px; font-weight: 500; }
+details.acc summary::after { content: "+"; font-size: 20px; line-height: 1; }
+details.acc[open] summary::after { content: "–"; }
+details.acc p, details.acc dl { margin-top: 10px; font-size: 14.5px; color: #4e4b45; }
+details.acc dl { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 6px 14px; }
+details.acc dt { color: var(--stone); }
+details.acc dd { margin: 0; }
+
+/* Warenkorb */
+.scrim { position: fixed; inset: 0; background: rgba(20,20,22,.35); z-index: 80; opacity: 0; transition: opacity .3s; }
+.scrim.open { opacity: 1; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: var(--white); z-index: 90; display: flex; flex-direction: column; transform: translateX(100%); transition: transform .4s cubic-bezier(.2,.7,.2,1); padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); box-shadow: -10px 0 40px rgba(0,0,0,.08); }
+.drawer.open { transform: none; }
+.dhead { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--line); }
+.dhead h2 { font-family: var(--f-body); font-weight: 500; font-size: 20px; }
+.ship { padding: 14px 24px; font-size: 13.5px; color: var(--stone); display: flex; flex-direction: column; gap: 8px; }
+.ship .bar { height: 4px; border-radius: 2px; background: var(--soft-2); overflow: hidden; }
+.ship .bar i { display: block; height: 100%; background: var(--champagne); transition: width .4s; }
+.items { flex: 1; overflow-y: auto; padding: 4px 24px; }
+.item { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.item .th { position: relative; width: 76px; aspect-ratio: 1; background: var(--soft); border-radius: 10px; }
+.item .th img { position: absolute; inset: 8%; width: 84%; height: 84%; object-fit: contain; }
+.item h4 { margin: 0; font-weight: 500; font-size: 15px; }
+.item .v { font-size: 13px; color: var(--stone); }
+.item .qty button { width: 32px; height: 32px; font-size: 15px; }
+.item .qty output { width: 24px; font-size: 14px; }
+.item .rm { font-size: 12.5px; color: var(--stone); text-decoration: underline; text-underline-offset: 3px; margin-top: 8px; }
+.item .price { font-size: 15px; text-align: right; }
+.empty { padding: 48px 0; text-align: center; color: var(--stone); display: flex; flex-direction: column; gap: 18px; align-items: center; }
+.dfoot { padding: 18px 24px 24px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+.sum { display: flex; justify-content: space-between; align-items: baseline; font-size: 15px; }
+.sum .price { font-size: 20px; }
+
+/* Kasse */
+.checkout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 56px; padding-block: 40px 88px; align-items: start; }
+.checkout h1 { font-size: clamp(32px, 3.6vw, 46px); margin-bottom: 6px; }
+form.co { display: flex; flex-direction: column; gap: 26px; }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+legend { font-size: 15px; font-weight: 500; margin-bottom: 12px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 13px; color: var(--stone); }
+.field input, .field select { font: inherit; font-size: 15px; padding: 13px 16px; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 10px; }
+.field input:focus, .field select:focus { outline: none; border-color: var(--ink); }
+.pay { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pay label { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; font-size: 15px; cursor: pointer; }
+.pay input { accent-color: var(--ink); }
+.osum { background: var(--soft); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 12px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 96px); }
+.osum h3 { font-family: var(--f-body); font-weight: 500; font-size: 18px; }
+.oline { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; }
+.oline.total { border-top: 1px solid var(--line); padding-top: 12px; font-size: 16px; font-weight: 500; }
+
+/* Bestätigung */
+.modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: rgba(20,20,22,.4); }
+.modal .box { background: var(--white); border-radius: 16px; max-width: 460px; width: 100%; padding: 40px 32px; text-align: center; display: flex; flex-direction: column; gap: 16px; align-items: center; }
+.modal .mono { width: 60px; color: var(--champagne); }
+.modal h2 { font-size: 32px; }
+
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); background: var(--ink); color: #fff; padding: 13px 22px; border-radius: 999px; font-size: 14px; z-index: 110; opacity: 0; transition: opacity .3s, transform .3s; pointer-events: none; max-width: calc(100% - 32px); }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* Fuß */
+footer.site { background: var(--soft); padding-block: 64px 32px; font-size: 14px; color: var(--stone); }
+.fgrid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+.fgrid h4 { margin: 0 0 12px; font-size: 14px; font-weight: 500; color: var(--ink); }
+.fgrid ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.fgrid button, .fgrid a { text-align: left; text-decoration: none; }
+.fgrid button:hover, .fgrid a:hover { color: var(--ink); }
+.news { display: flex; margin-top: 16px; border: 1px solid var(--line); border-radius: 999px; background: #fff; overflow: hidden; }
+.news input { flex: 1; min-width: 0; border: 0; padding: 12px 16px; font: inherit; background: transparent; }
+.news button { padding: 0 18px; font-weight: 500; color: var(--ink); }
+.fbottom { margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12.5px; }
+
+@media (max-width: 960px) {
+  .nav { display: none; }
+  .menu-btn { display: inline-flex; font-size: 14px; }
+  .hbar { grid-template-columns: auto 1fr auto; gap: 12px; }
+  .brand { justify-self: center; }
+  .mnav { display: flex; flex-direction: column; padding-block: 4px 14px; border-top: 1px solid var(--line); }
+  .mnav[hidden] { display: none !important; }
+  .mnav a { padding-block: 11px; font-size: 15px; text-decoration: none; }
+  .hero-banner img { aspect-ratio: 4/3; object-position: 78% 50%; }
+  .hero-copy { position: static; padding: 28px max(20px, env(safe-area-inset-right, 0px)) 36px max(20px, env(safe-area-inset-left, 0px)); max-width: none; background: var(--sage); }
+  .tiles { grid-template-columns: 1fr; }
+  .flavors, .ritual, .bottle-sec, .pdp, .checkout, .club { grid-template-columns: 1fr; }
+  .club img { min-height: 0; aspect-ratio: 4/3; }
+  .club .cc { padding: 32px 24px; }
+  .usps { grid-template-columns: 1fr 1fr; }
+  .buy, .osum { position: static; }
+  .fgrid { grid-template-columns: 1fr 1fr; }
+  .sec { padding-block: 60px; }
+}
+@media (max-width: 520px) {
+  fieldset, .pay, .steps, .perks { grid-template-columns: 1fr; }
+  .fgrid, .usps { grid-template-columns: 1fr; }
+  .facts b { font-size: 20px; }
+  .count-note { margin-left: 0; width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="demo gut">Vorschau · Demo-Shop, es werden keine echten Bestellungen ausgelöst</div>
+
+<header class="site gut">
+  <div class="wrap">
+    <div class="hbar">
+      <a class="brand" href="#home" aria-label="TORSÉ Startseite"><svg class="mono" viewBox="0 0 120 120" role="img" aria-label="TORSÉ Monogramm"><g fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="60" cy="60" r="57.5" stroke-width="1"/><g stroke-width="0.8"><line x1="111.00" y1="60.00" x2="115.50" y2="60.00"/><line x1="110.56" y1="66.66" x2="115.03" y2="67.24"/><line x1="109.26" y1="73.20" x2="113.61" y2="74.36"/><line x1="107.12" y1="79.52" x2="111.28" y2="81.24"/><line x1="104.17" y1="85.50" x2="108.06" y2="87.75"/><line x1="100.46" y1="91.05" x2="104.03" y2="93.79"/><line x1="96.06" y1="96.06" x2="99.24" y2="99.24"/><line x1="91.05" y1="100.46" x2="93.79" y2="104.03"/><line x1="85.50" y1="104.17" x2="87.75" y2="108.06"/><line x1="79.52" y1="107.12" x2="81.24" y2="111.28"/><line x1="73.20" y1="109.26" x2="74.36" y2="113.61"/><line x1="66.66" y1="110.56" x2="67.24" y2="115.03"/><line x1="60.00" y1="111.00" x2="60.00" y2="115.50"/><line x1="53.34" y1="110.56" x2="52.76" y2="115.03"/><line x1="46.80" y1="109.26" x2="45.64" y2="113.61"/><line x1="40.48" y1="107.12" x2="38.76" y2="111.28"/><line x1="34.50" y1="104.17" x2="32.25" y2="108.06"/><line x1="28.95" y1="100.46" x2="26.21" y2="104.03"/><line x1="23.94" y1="96.06" x2="20.76" y2="99.24"/><line x1="19.54" y1="91.05" x2="15.97" y2="93.79"/><line x1="15.83" y1="85.50" x2="11.94" y2="87.75"/><line x1="12.88" y1="79.52" x2="8.72" y2="81.24"/><line x1="10.74" y1="73.20" x2="6.39" y2="74.36"/><line x1="9.44" y1="66.66" x2="4.97" y2="67.24"/><line x1="9.00" y1="60.00" x2="4.50" y2="60.00"/><line x1="9.44" y1="53.34" x2="4.97" y2="52.76"/><line x1="10.74" y1="46.80" x2="6.39" y2="45.64"/><line x1="12.88" y1="40.48" x2="8.72" y2="38.76"/><line x1="15.83" y1="34.50" x2="11.94" y2="32.25"/><line x1="19.54" y1="28.95" x2="15.97" y2="26.21"/><line x1="23.94" y1="23.94" x2="20.76" y2="20.76"/><line x1="28.95" y1="19.54" x2="26.21" y2="15.97"/><line x1="34.50" y1="15.83" x2="32.25" y2="11.94"/><line x1="40.48" y1="12.88" x2="38.76" y2="8.72"/><line x1="46.80" y1="10.74" x2="45.64" y2="6.39"/><line x1="53.34" y1="9.44" x2="52.76" y2="4.97"/><line x1="60.00" y1="9.00" x2="60.00" y2="4.50"/><line x1="66.66" y1="9.44" x2="67.24" y2="4.97"/><line x1="73.20" y1="10.74" x2="74.36" y2="6.39"/><line x1="79.52" y1="12.88" x2="81.24" y2="8.72"/><line x1="85.50" y1="15.83" x2="87.75" y2="11.94"/><line x1="91.05" y1="19.54" x2="93.79" y2="15.97"/><line x1="96.06" y1="23.94" x2="99.24" y2="20.76"/><line x1="100.46" y1="28.95" x2="104.03" y2="26.21"/><line x1="104.17" y1="34.50" x2="108.06" y2="32.25"/><line x1="107.12" y1="40.48" x2="111.28" y2="38.76"/><line x1="109.26" y1="46.80" x2="113.61" y2="45.64"/><line x1="110.56" y1="53.34" x2="115.03" y2="52.76"/></g><circle cx="60" cy="60" r="48.5" stroke-width="0.8"/><path d="M36 40 H84" stroke-width="3.2"/><path d="M60 40 C67 46 67 52 60 58 C53 64 53 70 60 76 C67 82 67 88 60 92" stroke-width="2.4"/><path d="M60 40 C53 46 53 52 60 58 C67 64 67 70 60 76 C53 82 53 88 60 92" stroke-width="2.4"/></g></svg><span>TORSÉ</span></a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="#shop" data-nav="shop">Kollektion</a>
+        <a href="#ritual" data-nav="ritual">Das Ritual</a>
+        <a href="#flasche" data-nav="flasche">Flasche &amp; Starter Set</a>
+        <a href="#club" data-nav="club">Club</a>
+      </nav>
+      <div class="hright">
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mnav">Menü</button>
+        <button class="icon-btn" aria-label="Suche (Demo)" id="searchBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+        <button class="icon-btn" aria-label="Konto (Demo)" id="accBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c1.2-3.6 4-5.3 7-5.3s5.8 1.7 7 5.3"/></svg></button>
+        <button class="icon-btn" id="cartBtn" aria-label="Warenkorb öffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="count" id="cartCount" data-n="0">0</span></button>
+      </div>
+    </div>
+    <nav class="mnav" id="mnav" hidden aria-label="Mobile Navigation">
+      <a href="#shop">Kollektion</a><a href="#ritual">Das Ritual</a><a href="#flasche">Flasche &amp; Starter Set</a><a href="#club">Club</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="view" data-view="home">
+  <div class="hero">
+    <div class="hero-banner">
+      <img src="/images/hero.jpg" alt="Drei TORSÉ-Flaschen und drei Kapseln auf hellen Sockeln in Salbeigrün">
+      <div class="hero-copy">
+        <span class="label">Neu · Für stilles Wasser</span>
+        <h1>Ein Dreh.<br><em>Ein Ritual.</em></h1>
+        <p>Ceremonial-Matcha, Yuzu oder Sakura in einer Kapsel aus Gold. Aufschrauben, drehen, schütteln, auf jeder Flasche stilles Wasser von 0,33 bis 0,5 l.</p>
+        <div class="ctas"><a class="btn dark" href="#shop">Kollektion entdecken</a><button class="btn line" data-open="starter">Starter Set · 39 €</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec gut">
+    <div class="wrap">
+      <div class="tiles">
+        <button class="tile t-sage" data-cat-go="kapseln"><span class="tl">Kapseln<small>Standard und Large</small></span><img src="/images/kapseln-trio.webp" alt=""></button>
+        <button class="tile t-ivory" data-cat-go="flasche"><span class="tl">Flasche &amp; Starter Set<small>500 ml Kristallglas</small></span><img src="/images/starter-set.webp" alt=""></button>
+        <button class="tile t-blush" data-cat-go="zubehoer"><span class="tl">Zubehör<small>Carrousel und Travel Clip</small></span><img src="/images/carrousel.webp" alt=""></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec gut" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><h2>Unsere Favoriten</h2><p>Für den Anfang oder als Geschenk.</p></div>
+      <div class="grid" id="featured"></div>
+    </div>
+  </div>
+
+  <div class="sec soft gut">
+    <div class="wrap flavors">
+      <div class="fpanel"><img src="/images/kapseln-trio.webp" alt="Die drei TORSÉ-Kapseln in Jade, Yuzu-Gold und Sakura-Rosé"></div>
+      <div>
+        <div class="sec-head"><span class="label">Die Kollektion</span><h2>Drei Sorten, drei Farben</h2><p>Jede Sorte hat ihre Farbe. Die Intensität steht auf jeder Kapsel.</p></div>
+        <div class="flist">
+          <button class="fl" data-shopflavor="matcha"><span class="dot" style="background:var(--jade)"></span><span><span class="no">N°1 · Intensität 8</span><h3>Uji Matcha</h3><p>Ceremonial Grade aus Kyoto. Umami und frisches Gras.</p></span><span class="arrow">→</span></button>
+          <button class="fl" data-shopflavor="yuzu"><span class="dot" style="background:var(--yuzu)"></span><span><span class="no">N°2 · Intensität 5</span><h3>Yuzu &amp; Ingwer</h3><p>Japanische Yuzu, ein Hauch Ingwer, ohne Zucker.</p></span><span class="arrow">→</span></button>
+          <button class="fl" data-shopflavor="sakura"><span class="dot" style="background:var(--sakura)"></span><span><span class="no">N°3 · Intensität 3</span><h3>Sakura Collagène</h3><p>Kirschblüte und Hibiskus mit Kollagen.</p></span><span class="arrow">→</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec gut">
+    <div class="wrap ritual">
+      <img src="/images/ritual-kaffeehaus.jpg" alt="Eine Hand dreht die TORSÉ-Kapsel auf der TORSÉ-Flasche im Wiener Kaffeehaus">
+      <div>
+        <div class="sec-head"><span class="label">Das Ritual</span><h2>Vier Bewegungen, zehn Sekunden</h2></div>
+        <div class="steps">
+          <div class="step"><span class="k">I</span><b>Abziehen</b><span>Die goldene Schutzfolie abziehen.</span></div>
+          <div class="step"><span class="k">II</span><b>Aufschrauben</b><span>Auf jede Flasche stilles Wasser, 0,33 bis 0,5 l.</span></div>
+          <div class="step"><span class="k">III</span><b>Drehen</b><span>Eine Vierteldrehung öffnet das Siegel.</span></div>
+          <div class="step"><span class="k">IV</span><b>Schütteln</b><span>Zehn Sekunden schütteln und genießen.</span></div>
+        </div>
+        <p class="water">Nur für stilles Wasser. In Sprudel schäumt die Füllung beim Schütteln auf.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec gut" style="padding-top:0">
+    <div class="wrap bottle-sec">
+      <div class="bpanel"><img src="/images/flasche.webp" alt="Die TORSÉ-Flasche, freigestellt"></div>
+      <div class="bottle-copy">
+        <span class="label">Die Flasche</span>
+        <h2>Eine Säule aus Kristallglas</h2>
+        <p class="muted" style="font-size:16.5px;max-width:52ch">Schlank, gerade und schwer, wie das Mineralwasser eines Grandhotels. Der dicke Boden bricht das Licht, der Schriftzug ist eingeätzt. Jede TORSÉ-Kapsel passt darauf.</p>
+        <div class="facts"><div><b>500 ml</b><span>Inhalt</span></div><div><b>23 cm</b><span>Höhe</span></div><div><b>26/22</b><span>Gewinde</span></div></div>
+        <div class="ctas"><button class="btn dark" data-open="flasche">Flasche · 29 €</button><button class="btn line" data-open="starter">Starter Set · 39 €</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec gut" style="padding-top:0">
+    <div class="wrap club">
+      <img src="/images/club.jpg" alt="TORSÉ-Boxen in Jade, Yuzu und Sakura in einer hellen Wiener Wohnung">
+      <div class="cc">
+        <span class="label">Club TORSÉ</span>
+        <h2>Ihre Sorte, jeden Monat</h2>
+        <ul><li>Large-Box mit 30 Kapseln, 1,80 € pro Kapsel</li><li>Saison-Editionen vor allen anderen</li><li>Versandkostenfrei, jederzeit pausieren</li></ul>
+        <div class="ctas"><button class="btn dark" data-open="large-matcha">Large im Abo</button><a class="btn line" href="#club">Mehr erfahren</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec gut" style="padding-top:0">
+    <div class="wrap usps">
+      <div class="usp"><b>Versandkostenfrei ab 49 €</b><span>Lieferung in 2 bis 3 Werktagen aus Wien</span></div>
+      <div class="usp"><b>Passt auf 0,33–0,5 l</b><span>Stilles Wasser mit 26/22-Hals</span></div>
+      <div class="usp"><b>Hülsen zurückgeben</b><span>Club-Punkte für jede Aluminiumhülse</span></div>
+      <div class="usp"><b>Sicher bezahlen</b><span>Karte, eps, PayPal, Apple Pay</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="view gut" data-view="shop" hidden>
+  <div class="wrap">
+    <div class="shop-head"><h1>Die Kollektion</h1><p class="muted" style="font-size:16.5px;max-width:62ch">Kapseln in jeder Sorte, die TORSÉ-Flasche und Zubehör. Alle Kapseln sind für stilles Wasser in Flaschen von 0,33 bis 0,5 l.</p></div>
+    <div class="filters" role="group" aria-label="Filter">
+      <div class="grp" id="catChips">
+        <button class="chip on" data-cat="all">Alle</button>
+        <button class="chip" data-cat="kapseln">Kapseln</button>
+        <button class="chip" data-cat="flasche">Flasche &amp; Set</button>
+        <button class="chip" data-cat="zubehoer">Zubehör</button>
+      </div>
+      <span class="sep" aria-hidden="true"></span>
+      <div class="grp" id="flavChips">
+        <button class="chip on" data-flav="all">Alle Sorten</button>
+        <button class="chip" data-flav="matcha"><i style="background:var(--jade)"></i>Matcha</button>
+        <button class="chip" data-flav="yuzu"><i style="background:var(--yuzu)"></i>Yuzu</button>
+        <button class="chip" data-flav="sakura"><i style="background:var(--sakura)"></i>Sakura</button>
+      </div>
+      <span class="count-note" id="countNote"></span>
+    </div>
+    <div class="grid" id="shopGrid" style="padding-bottom:88px"></div>
+  </div>
+</section>
+
+<section class="view gut" data-view="product" hidden>
+  <div class="wrap">
+    <div class="crumbs"><button data-go="home">Start</button><span>/</span><button data-go="shop">Kollektion</button><span>/</span><span id="crumbName"></span></div>
+    <div class="pdp">
+      <div class="gallery"><div class="stage"><img id="pMain" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></div><div class="thumbs" id="pThumbs"></div></div>
+      <div class="buy">
+        <span class="label" id="pLabel"></span>
+        <h1 id="pName"></h1>
+        <div><span class="price" id="pPrice"></span><span class="per" id="pPer"></span></div>
+        <p class="muted" id="pDesc" style="font-size:16px"></p>
+        <div class="opt" id="pFlavOpt"><span class="olabel">Sorte</span><div class="opts" id="pFlavs"></div></div>
+        <div class="opt" id="pMeterOpt"><span class="olabel">Intensität</span><div class="meter" id="pMeter"></div></div>
+        <div class="opt" id="pAboOpt"><span class="olabel">Lieferung</span><div class="opts"><button class="sw on" data-abo="0">Einmalig</button><button class="sw" data-abo="1">Monatlich im Club</button></div></div>
+        <div class="qtyrow">
+          <div class="qty"><button id="qMinus" aria-label="Weniger">−</button><output id="qVal">1</output><button id="qPlus" aria-label="Mehr">+</button></div>
+          <button class="btn dark block" id="addBtn">In den Warenkorb</button>
+        </div>
+        <div class="perks"><span>Versandkostenfrei ab 49 €</span><span>Lieferung in 2 bis 3 Werktagen</span><span>Für stilles Wasser, 0,33–0,5 l</span><span>30 Tage Rückgabe</span></div>
+        <div>
+          <details class="acc" open><summary>Details</summary><dl id="pDetails"></dl></details>
+          <details class="acc"><summary>Für welche Flaschen?</summary><p>Alle TORSÉ-Kapseln passen auf PET-Flaschen mit stillem Wasser von 0,33 bis 0,5 l mit dem verbreiteten 26/22-Hals, und auf die TORSÉ-Flasche. Nicht für Sprudel geeignet.</p></details>
+          <details class="acc"><summary>Versand &amp; Rückgabe</summary><p>Versand aus Wien innerhalb Österreichs und der EU. Ungeöffnete Ware kann 30 Tage lang zurückgegeben werden.</p></details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="view" data-view="ritual" hidden>
+  <div class="sec gut">
+    <div class="wrap ritual">
+      <img src="/images/kapsel-aufbau.jpg" alt="Aufbau der TORSÉ-Kapsel" style="background:var(--soft)">
+      <div>
+        <div class="sec-head"><span class="label">Das Ritual</span><h2>Was in der Kapsel steckt</h2><p>Ein Deckel aus gebürstetem Aluminium mit unserem Monogramm, eine eloxierte Hülse in der Sortenfarbe und darunter eine luftdichte Kammer. Darin bleibt die Füllung frisch, bis Sie drehen.</p></div>
+        <div class="steps">
+          <div class="step"><span class="k">I</span><b>Abziehen</b><span>Die goldene Schutzfolie abziehen.</span></div>
+          <div class="step"><span class="k">II</span><b>Aufschrauben</b><span>Auf jede Flasche stilles Wasser, 0,33 bis 0,5 l.</span></div>
+          <div class="step"><span class="k">III</span><b>Drehen</b><span>Der Schneidstern öffnet das Siegel.</span></div>
+          <div class="step"><span class="k">IV</span><b>Schütteln</b><span>Zehn Sekunden schütteln und genießen.</span></div>
+        </div>
+        <div class="ctas" style="margin-top:28px"><a class="btn dark" href="#shop">Zur Kollektion</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec soft gut">
+    <div class="wrap ritual">
+      <div class="sec-head" style="margin:0"><span class="label">Im Kaffeehaus, im Büro, unterwegs</span><h2>Überall, wo es stilles Wasser gibt</h2><p>Die Kapsel passt auf die TORSÉ-Flasche und auf die üblichen 0,33- und 0,5-l-Flaschen mit stillem Wasser. Mit dem Travel Clip haben Sie drei Kapseln immer dabei.</p><div class="ctas" style="margin-top:12px"><button class="btn dark" data-open="travel-clip">Travel Clip · 39 €</button></div></div>
+      <img src="/images/kollektion-flaschen.jpg" alt="Drei TORSÉ-Flaschen mit Wasser in Jade, Gold und Rosé" style="aspect-ratio:16/10">
+    </div>
+  </div>
+</section>
+
+<section class="view" data-view="flasche" hidden>
+  <div class="sec gut">
+    <div class="wrap bottle-sec">
+      <div class="bpanel"><img src="/images/flasche.webp" alt="Die TORSÉ-Flasche"></div>
+      <div class="bottle-copy">
+        <span class="label">Die Flasche</span>
+        <h1 style="font-size:clamp(36px,4.6vw,58px);line-height:1.04">Eine Säule aus Kristallglas</h1>
+        <p class="muted" style="font-size:16.5px;max-width:52ch">Schlank, gerade und schwer. Der dicke Boden bricht das Licht, der Schriftzug ist senkrecht eingeätzt, am Boden sitzt das Monogramm.</p>
+        <div class="facts"><div><b>500 ml</b><span>Inhalt</span></div><div><b>23 × 6,5</b><span>cm, H × Ø</span></div><div><b>26/22</b><span>passt zu jeder Kapsel</span></div></div>
+        <div class="ctas"><button class="btn dark" data-open="flasche">Flasche · 29 €</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec soft gut">
+    <div class="wrap bottle-sec" style="grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr)">
+      <div class="bottle-copy">
+        <span class="label">Starter Set</span>
+        <h2>Flasche und neun Kapseln</h2>
+        <p class="muted" style="font-size:16.5px;max-width:52ch">Die TORSÉ-Flasche mit je drei Kapseln jeder Sorte, in der Onyx-Box. Der schönste Einstieg und ein Geschenk, das man nicht vergisst.</p>
+        <div class="ctas"><button class="btn dark" data-open="starter">Starter Set · 39 €</button></div>
+      </div>
+      <div class="bpanel" style="background:var(--white);aspect-ratio:4/3"><img src="/images/starter-set.webp" alt="Starter Set"></div>
+    </div>
+  </div>
+</section>
+
+<section class="view" data-view="club" hidden>
+  <div class="sec gut">
+    <div class="wrap club">
+      <img src="/images/club.jpg" alt="TORSÉ-Boxen in einer hellen Wohnung">
+      <div class="cc">
+        <span class="label">Club TORSÉ</span>
+        <h1 style="font-size:clamp(34px,4.4vw,54px);line-height:1.04">Ihre Sorte, jeden Monat</h1>
+        <p class="muted" style="font-size:16.5px">Wählen Sie Ihre Sorte, wir schicken jeden Monat eine Large-Box mit 30 Kapseln. Sie können jederzeit wechseln, pausieren oder kündigen.</p>
+        <ul><li>1,80 € pro Kapsel statt 2,20 €</li><li>Saison-Editionen vor allen anderen</li><li>Versandkostenfrei</li><li>Hülsen zurückschicken und Punkte sammeln</li></ul>
+        <div class="ctas"><button class="btn dark" data-open="large-matcha">Matcha</button><button class="btn line" data-open="large-yuzu">Yuzu</button><button class="btn line" data-open="large-sakura">Sakura</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec soft gut">
+    <div class="wrap">
+      <div class="sec-head"><h2>Die Large-Boxen</h2></div>
+      <div class="grid" id="clubGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="view gut" data-view="kasse" hidden>
+  <div class="wrap checkout">
+    <div>
+      <h1>Kasse</h1>
+      <p class="muted" style="margin-bottom:26px">Demo-Shop: Die Eingaben werden nirgendwohin gesendet.</p>
+      <form class="co" id="coForm" novalidate>
+        <fieldset><legend>Kontakt</legend>
+          <div class="field full"><label for="f-mail">E-Mail</label><input id="f-mail" type="email" autocomplete="off" placeholder="name@beispiel.at"></div>
+        </fieldset>
+        <fieldset><legend>Lieferadresse</legend>
+          <div class="field"><label for="f-first">Vorname</label><input id="f-first" autocomplete="off"></div>
+          <div class="field"><label for="f-last">Nachname</label><input id="f-last" autocomplete="off"></div>
+          <div class="field full"><label for="f-street">Straße und Hausnummer</label><input id="f-street" autocomplete="off"></div>
+          <div class="field"><label for="f-zip">PLZ</label><input id="f-zip" autocomplete="off"></div>
+          <div class="field"><label for="f-city">Ort</label><input id="f-city" autocomplete="off"></div>
+          <div class="field full"><label for="f-country">Land</label><select id="f-country"><option>Österreich</option><option>Deutschland</option><option>Schweiz</option><option>Italien</option><option>Frankreich</option></select></div>
+        </fieldset>
+        <fieldset><legend>Zahlung</legend>
+          <div class="pay">
+            <label><input type="radio" name="pay" id="p-card" checked> Kreditkarte</label>
+            <label><input type="radio" name="pay" id="p-eps"> eps-Überweisung</label>
+            <label><input type="radio" name="pay" id="p-pp"> PayPal</label>
+            <label><input type="radio" name="pay" id="p-apple"> Apple Pay</label>
+          </div>
+        </fieldset>
+        <button class="btn dark block" type="submit" id="placeBtn">Zahlungspflichtig bestellen</button>
+      </form>
+    </div>
+    <aside class="osum" aria-label="Bestellübersicht">
+      <h3>Ihre Bestellung</h3>
+      <div id="osLines"></div>
+      <div class="oline"><span>Zwischensumme</span><span class="price" id="osSub"></span></div>
+      <div class="oline"><span>Versand</span><span id="osShip"></span></div>
+      <div class="oline total"><span>Gesamt inkl. MwSt.</span><span class="price" id="osTotal"></span></div>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer class="site gut">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#home"><svg class="mono" viewBox="0 0 120 120" role="img" aria-label="TORSÉ Monogramm"><g fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="60" cy="60" r="57.5" stroke-width="1"/><g stroke-width="0.8"><line x1="111.00" y1="60.00" x2="115.50" y2="60.00"/><line x1="110.56" y1="66.66" x2="115.03" y2="67.24"/><line x1="109.26" y1="73.20" x2="113.61" y2="74.36"/><line x1="107.12" y1="79.52" x2="111.28" y2="81.24"/><line x1="104.17" y1="85.50" x2="108.06" y2="87.75"/><line x1="100.46" y1="91.05" x2="104.03" y2="93.79"/><line x1="96.06" y1="96.06" x2="99.24" y2="99.24"/><line x1="91.05" y1="100.46" x2="93.79" y2="104.03"/><line x1="85.50" y1="104.17" x2="87.75" y2="108.06"/><line x1="79.52" y1="107.12" x2="81.24" y2="111.28"/><line x1="73.20" y1="109.26" x2="74.36" y2="113.61"/><line x1="66.66" y1="110.56" x2="67.24" y2="115.03"/><line x1="60.00" y1="111.00" x2="60.00" y2="115.50"/><line x1="53.34" y1="110.56" x2="52.76" y2="115.03"/><line x1="46.80" y1="109.26" x2="45.64" y2="113.61"/><line x1="40.48" y1="107.12" x2="38.76" y2="111.28"/><line x1="34.50" y1="104.17" x2="32.25" y2="108.06"/><line x1="28.95" y1="100.46" x2="26.21" y2="104.03"/><line x1="23.94" y1="96.06" x2="20.76" y2="99.24"/><line x1="19.54" y1="91.05" x2="15.97" y2="93.79"/><line x1="15.83" y1="85.50" x2="11.94" y2="87.75"/><line x1="12.88" y1="79.52" x2="8.72" y2="81.24"/><line x1="10.74" y1="73.20" x2="6.39" y2="74.36"/><line x1="9.44" y1="66.66" x2="4.97" y2="67.24"/><line x1="9.00" y1="60.00" x2="4.50" y2="60.00"/><line x1="9.44" y1="53.34" x2="4.97" y2="52.76"/><line x1="10.74" y1="46.80" x2="6.39" y2="45.64"/><line x1="12.88" y1="40.48" x2="8.72" y2="38.76"/><line x1="15.83" y1="34.50" x2="11.94" y2="32.25"/><line x1="19.54" y1="28.95" x2="15.97" y2="26.21"/><line x1="23.94" y1="23.94" x2="20.76" y2="20.76"/><line x1="28.95" y1="19.54" x2="26.21" y2="15.97"/><line x1="34.50" y1="15.83" x2="32.25" y2="11.94"/><line x1="40.48" y1="12.88" x2="38.76" y2="8.72"/><line x1="46.80" y1="10.74" x2="45.64" y2="6.39"/><line x1="53.34" y1="9.44" x2="52.76" y2="4.97"/><line x1="60.00" y1="9.00" x2="60.00" y2="4.50"/><line x1="66.66" y1="9.44" x2="67.24" y2="4.97"/><line x1="73.20" y1="10.74" x2="74.36" y2="6.39"/><line x1="79.52" y1="12.88" x2="81.24" y2="8.72"/><line x1="85.50" y1="15.83" x2="87.75" y2="11.94"/><line x1="91.05" y1="19.54" x2="93.79" y2="15.97"/><line x1="96.06" y1="23.94" x2="99.24" y2="20.76"/><line x1="100.46" y1="28.95" x2="104.03" y2="26.21"/><line x1="104.17" y1="34.50" x2="108.06" y2="32.25"/><line x1="107.12" y1="40.48" x2="111.28" y2="38.76"/><line x1="109.26" y1="46.80" x2="113.61" y2="45.64"/><line x1="110.56" y1="53.34" x2="115.03" y2="52.76"/></g><circle cx="60" cy="60" r="48.5" stroke-width="0.8"/><path d="M36 40 H84" stroke-width="3.2"/><path d="M60 40 C67 46 67 52 60 58 C53 64 53 70 60 76 C67 82 67 88 60 92" stroke-width="2.4"/><path d="M60 40 C53 46 53 52 60 58 C67 64 67 70 60 76 C53 82 53 88 60 92" stroke-width="2.4"/></g></svg><span>TORSÉ</span></a>
+        <p style="margin-top:12px">Rituel de l'eau. Kapseln für stilles Wasser, gestaltet in Wien.</p>
+        <form class="news" id="newsForm"><label for="n-mail" style="position:absolute;left:-9999px">E-Mail für Newsletter</label><input id="n-mail" type="email" placeholder="E-Mail für Neuigkeiten"><button type="submit">Anmelden</button></form>
+      </div>
+      <div><h4>Kollektion</h4><ul><li><button data-open="standard-matcha">N°1 Uji Matcha</button></li><li><button data-open="standard-yuzu">N°2 Yuzu</button></li><li><button data-open="standard-sakura">N°3 Sakura</button></li><li><button data-open="flasche">Die Flasche</button></li></ul></div>
+      <div><h4>Entdecken</h4><ul><li><a href="#ritual">Das Ritual</a></li><li><a href="#club">Club TORSÉ</a></li><li><a href="#flasche">Starter Set</a></li></ul></div>
+      <div><h4>Service</h4><ul><li><span>Versand &amp; Rückgabe</span></li><li><span>Passende Flaschen: 0,33–0,5 l, still</span></li><li><span>Boutique Wien, 1. Bezirk</span></li></ul></div>
+    </div>
+    <div class="fbottom"><span>© 2026 TORSÉ · Konzept und Demo-Shop</span><span>Impressum · Datenschutz · AGB</span></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Warenkorb" aria-hidden="true">
+  <div class="dhead"><h2>Warenkorb</h2><button class="icon-btn" id="closeCart" aria-label="Warenkorb schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="ship"><span id="shipNote"></span><div class="bar"><i id="shipBar" style="width:0"></i></div></div>
+  <div class="items" id="items"></div>
+  <div class="dfoot" id="dfoot">
+    <div class="sum"><span>Zwischensumme</span><span class="price" id="subtotal">0,00 €</span></div>
+    <button class="btn dark block" id="toCheckout">Zur Kasse</button>
+    <button class="btn line block" id="keepShopping">Weiter einkaufen</button>
+  </div>
+</aside>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="box">
+    <svg class="mono" viewBox="0 0 120 120" role="img" aria-label="TORSÉ Monogramm"><g fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="60" cy="60" r="57.5" stroke-width="1"/><g stroke-width="0.8"><line x1="111.00" y1="60.00" x2="115.50" y2="60.00"/><line x1="110.56" y1="66.66" x2="115.03" y2="67.24"/><line x1="109.26" y1="73.20" x2="113.61" y2="74.36"/><line x1="107.12" y1="79.52" x2="111.28" y2="81.24"/><line x1="104.17" y1="85.50" x2="108.06" y2="87.75"/><line x1="100.46" y1="91.05" x2="104.03" y2="93.79"/><line x1="96.06" y1="96.06" x2="99.24" y2="99.24"/><line x1="91.05" y1="100.46" x2="93.79" y2="104.03"/><line x1="85.50" y1="104.17" x2="87.75" y2="108.06"/><line x1="79.52" y1="107.12" x2="81.24" y2="111.28"/><line x1="73.20" y1="109.26" x2="74.36" y2="113.61"/><line x1="66.66" y1="110.56" x2="67.24" y2="115.03"/><line x1="60.00" y1="111.00" x2="60.00" y2="115.50"/><line x1="53.34" y1="110.56" x2="52.76" y2="115.03"/><line x1="46.80" y1="109.26" x2="45.64" y2="113.61"/><line x1="40.48" y1="107.12" x2="38.76" y2="111.28"/><line x1="34.50" y1="104.17" x2="32.25" y2="108.06"/><line x1="28.95" y1="100.46" x2="26.21" y2="104.03"/><line x1="23.94" y1="96.06" x2="20.76" y2="99.24"/><line x1="19.54" y1="91.05" x2="15.97" y2="93.79"/><line x1="15.83" y1="85.50" x2="11.94" y2="87.75"/><line x1="12.88" y1="79.52" x2="8.72" y2="81.24"/><line x1="10.74" y1="73.20" x2="6.39" y2="74.36"/><line x1="9.44" y1="66.66" x2="4.97" y2="67.24"/><line x1="9.00" y1="60.00" x2="4.50" y2="60.00"/><line x1="9.44" y1="53.34" x2="4.97" y2="52.76"/><line x1="10.74" y1="46.80" x2="6.39" y2="45.64"/><line x1="12.88" y1="40.48" x2="8.72" y2="38.76"/><line x1="15.83" y1="34.50" x2="11.94" y2="32.25"/><line x1="19.54" y1="28.95" x2="15.97" y2="26.21"/><line x1="23.94" y1="23.94" x2="20.76" y2="20.76"/><line x1="28.95" y1="19.54" x2="26.21" y2="15.97"/><line x1="34.50" y1="15.83" x2="32.25" y2="11.94"/><line x1="40.48" y1="12.88" x2="38.76" y2="8.72"/><line x1="46.80" y1="10.74" x2="45.64" y2="6.39"/><line x1="53.34" y1="9.44" x2="52.76" y2="4.97"/><line x1="60.00" y1="9.00" x2="60.00" y2="4.50"/><line x1="66.66" y1="9.44" x2="67.24" y2="4.97"/><line x1="73.20" y1="10.74" x2="74.36" y2="6.39"/><line x1="79.52" y1="12.88" x2="81.24" y2="8.72"/><line x1="85.50" y1="15.83" x2="87.75" y2="11.94"/><line x1="91.05" y1="19.54" x2="93.79" y2="15.97"/><line x1="96.06" y1="23.94" x2="99.24" y2="20.76"/><line x1="100.46" y1="28.95" x2="104.03" y2="26.21"/><line x1="104.17" y1="34.50" x2="108.06" y2="32.25"/><line x1="107.12" y1="40.48" x2="111.28" y2="38.76"/><line x1="109.26" y1="46.80" x2="113.61" y2="45.64"/><line x1="110.56" y1="53.34" x2="115.03" y2="52.76"/></g><circle cx="60" cy="60" r="48.5" stroke-width="0.8"/><path d="M36 40 H84" stroke-width="3.2"/><path d="M60 40 C67 46 67 52 60 58 C53 64 53 70 60 76 C67 82 67 88 60 92" stroke-width="2.4"/><path d="M60 40 C53 46 53 52 60 58 C67 64 67 70 60 76 C53 82 53 88 60 92" stroke-width="2.4"/></g></svg>
+    <h2 id="mTitle">Merci.</h2>
+    <p class="muted">Das war eine Demo-Bestellung. Es wurde nichts gekauft, bezahlt oder versendet.</p>
+    <button class="btn dark" id="mClose">Zurück zur Boutique</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>window.__IMG={"c_std1": "/images/standard-matcha.webp", "c_std2": "/images/standard-yuzu.webp", "c_std3": "/images/standard-sakura.webp", "c_lg1": "/images/large-matcha.webp", "c_lg2": "/images/large-yuzu.webp", "c_lg3": "/images/large-sakura.webp", "c_bottle": "/images/flasche.webp", "c_starter": "/images/starter-set.webp", "c_car": "/images/carrousel.webp", "c_clip": "/images/travel-clip.webp", "c_trio": "/images/kapseln-trio.webp", "hero": "/images/hero.jpg", "club": "/images/club.jpg", "hand": "/images/ritual-kaffeehaus.jpg", "b2": "/images/kollektion-flaschen.jpg", "exploded": "/images/kapsel-aufbau.jpg", "outer": "/images/aussenverpackung.jpg"};</script>
+<script>
+(function(){
+const A = window.__IMG;
+document.querySelectorAll("img[data-img]").forEach(function(im){ im.src = A[im.dataset.img]; });
+const isCut = k => k.indexOf("c_")===0;
+const FL = {matcha:{n:"N°1 Uji Matcha",c:"var(--jade)",i:8},yuzu:{n:"N°2 Yuzu",c:"var(--yuzu)",i:5},sakura:{n:"N°3 Sakura",c:"var(--sakura)",i:3}};
+const P = {};
+function add(id,o){P[id]=Object.assign({id},o);}
+[["matcha","c_std1","c_lg1"],["yuzu","c_std2","c_lg2"],["sakura","c_std3","c_lg3"]].forEach(([f,s,l])=>{
+  add("standard-"+f,{fam:"standard",cat:"kapseln",flav:f,name:"Standard · "+FL[f].n,short:"Standard · "+FL[f].n.replace(/^N°\d /,""),sub:"10 Kapseln",price:22,per:"2,20 € pro Kapsel",img:s,gal:[s,"c_trio","hand","outer"],
+    desc:"Zehn Kapseln einer Sorte in der kompakten Box aus Recyclingkarton in der Sortenfarbe.",det:[["Inhalt","10 Kapseln, je eine Portion"],["Sorte",FL[f].n],["Passend für","stilles Wasser, 0,33–0,5 l"],["Verpackung","Klappbox, Fasergusseinlage, Goldprägung"]]});
+  add("large-"+f,{fam:"large",cat:"kapseln",flav:f,name:"Large · "+FL[f].n,short:"Large · "+FL[f].n.replace(/^N°\d /,""),sub:"30 Kapseln",price:54,per:"1,80 € pro Kapsel",img:l,gal:[l,"c_trio","club","outer"],badge:"Auch im Abo",
+    desc:"Dreißig Kapseln, immer eine Sorte pro Box. Passt in den Briefkasten und gibt es auch monatlich im Club.",det:[["Inhalt","30 Kapseln"],["Sorte",FL[f].n],["Passend für","stilles Wasser, 0,33–0,5 l"],["Verpackung","Klappbox, Fasergusseinlage, Goldprägung"]]});
+});
+add("flasche",{fam:"flasche",cat:"flasche",flav:null,name:"Die TORSÉ-Flasche",short:"Die TORSÉ-Flasche",sub:"500 ml Kristallglas",price:29,per:"",img:"c_bottle",gal:["c_bottle","hand","b2","hero"],
+  desc:"Eine schlanke, gerade Säule aus dickem Glas mit eingeätztem Schriftzug. Jede TORSÉ-Kapsel passt darauf.",det:[["Inhalt","500 ml"],["Maße","ca. 23 cm hoch, 6,5 cm Durchmesser"],["Material","Glas, spülmaschinenfest"],["Gewinde","26/22"]]});
+add("starter",{fam:"starter",cat:"flasche",flav:"all",name:"Starter Set",short:"Starter Set",sub:"Flasche und 9 Kapseln",price:39,per:"",img:"c_starter",gal:["c_starter","c_bottle","c_trio","hero"],badge:"Bestseller",
+  desc:"Die TORSÉ-Flasche und je drei Kapseln jeder Sorte in der Onyx-Box. Der schönste Einstieg in das Ritual.",det:[["Inhalt","1 Flasche, 9 Kapseln"],["Sorten","je 3 × Matcha, Yuzu, Sakura"],["Verpackung","Onyx-Klappbox mit Goldprägung"]]});
+add("carrousel",{fam:"carrousel",cat:"zubehoer",flav:null,name:"Le Carrousel",short:"Le Carrousel",sub:"Spender für 24 Kapseln",price:79,per:"",img:"c_car",gal:["c_car","c_trio"],
+  desc:"Drehbarer Spender aus Metall und Glas für Küche, Büro oder Rezeption. Wird leer geliefert.",det:[["Fasst","24 Kapseln"],["Material","Metall in Champagner, Glas"]]});
+add("travel-clip",{fam:"clip",cat:"zubehoer",flav:null,name:"Travel Clip",short:"Travel Clip",sub:"Röhre für 3 Kapseln",price:39,per:"",img:"c_clip",gal:["c_clip","c_trio"],
+  desc:"Schlanke Röhre aus Aluminium mit Karabiner. Drei Kapseln für unterwegs.",det:[["Fasst","3 Kapseln"],["Material","Aluminium, Karabiner"]]});
+
+const eur = n => n.toFixed(2).replace(".",",")+" €";
+const $ = s => document.querySelector(s);
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("torse-cart")||"[]").filter(l=>P[l.id]); } catch(e) { cart = []; }
+const save = () => { try { localStorage.setItem("torse-cart", JSON.stringify(cart)); } catch(e) {} };
+
+function swatches(p){
+  if(p.flav==="all") return '<span class="swatches"><i style="background:var(--jade)"></i><i style="background:var(--yuzu)"></i><i style="background:var(--sakura)"></i></span>';
+  if(p.flav) return '<span class="swatches"><i style="background:'+FL[p.flav].c+'"></i></span>';
+  return '';
+}
+function card(p){
+  return '<div class="card"><button class="card-open" data-open="'+p.id+'"><div class="ph">'+(p.badge?'<span class="badge">'+p.badge+'</span>':'')+'<img src="'+A[p.img]+'" alt="'+p.name+'" loading="lazy"></div><div class="info"><h3>'+p.short+'</h3><span class="sub">'+p.sub+'</span>'+swatches(p)+'</div></button><div class="row"><span class="price">'+eur(p.price)+'</span><button class="plus" data-quick="'+p.id+'" aria-label="'+p.short+' in den Warenkorb">+</button></div></div>';
+}
+$("#featured").innerHTML = ["starter","standard-matcha","large-yuzu","flasche"].map(id=>card(P[id])).join("");
+$("#clubGrid").innerHTML = ["large-matcha","large-yuzu","large-sakura"].map(id=>card(P[id])).join("");
+
+let fCat="all", fFlav="all";
+function setChips(){ document.querySelectorAll("#catChips .chip").forEach(x=>x.classList.toggle("on",x.dataset.cat===fCat)); document.querySelectorAll("#flavChips .chip").forEach(x=>x.classList.toggle("on",x.dataset.flav===fFlav)); }
+function renderShop(){
+  const list = Object.values(P).filter(p=>(fCat==="all"||p.cat===fCat)&&(fFlav==="all"||p.flav===fFlav||p.flav==="all"));
+  $("#shopGrid").innerHTML = list.map(card).join("");
+  $("#countNote").textContent = list.length+(list.length===1?" Produkt":" Produkte");
+  setChips();
+}
+document.querySelectorAll("#catChips .chip").forEach(b=>b.addEventListener("click",()=>{fCat=b.dataset.cat;renderShop();}));
+document.querySelectorAll("#flavChips .chip").forEach(b=>b.addEventListener("click",()=>{fFlav=b.dataset.flav;renderShop();}));
+document.querySelectorAll("[data-shopflavor]").forEach(b=>b.addEventListener("click",()=>{fFlav=b.dataset.shopflavor;fCat="kapseln";location.hash="shop";}));
+document.querySelectorAll("[data-cat-go]").forEach(b=>b.addEventListener("click",()=>{fCat=b.dataset.catGo;fFlav="all";location.hash="shop";}));
+
+let cur=null, qty=1, abo=false;
+function openProduct(id){ location.hash = "p-"+id; }
+function renderProduct(id){
+  const p=P[id]; if(!p){ location.hash="shop"; return; }
+  cur=p; qty=1; abo=false;
+  $("#crumbName").textContent=p.short;
+  $("#pLabel").textContent = p.cat==="kapseln" ? "Kapseln · für stilles Wasser" : (p.cat==="flasche"?"Flasche & Set":"Zubehör");
+  $("#pName").textContent=p.name; $("#pDesc").textContent=p.desc; $("#pPer").textContent=p.per;
+  const setMain=i=>{ const k=p.gal[i]; const m=$("#pMain"); m.src=A[k]; m.alt=p.name; m.className=isCut(k)?"cut":""; document.querySelectorAll("#pThumbs button").forEach((b,j)=>b.classList.toggle("on",j===i)); };
+  $("#pThumbs").innerHTML = p.gal.map((k,i)=>'<button aria-label="Bild '+(i+1)+'"><img class="'+(isCut(k)?'cut':'')+'" src="'+A[k]+'" alt=""></button>').join("");
+  document.querySelectorAll("#pThumbs button").forEach((b,i)=>b.addEventListener("click",()=>setMain(i)));
+  setMain(0);
+  const fam = ["standard","large"].includes(p.fam);
+  $("#pFlavOpt").hidden = !fam; $("#pMeterOpt").hidden = !(p.flav && p.flav!=="all"); $("#pAboOpt").hidden = p.fam!=="large";
+  if(fam){
+    $("#pFlavs").innerHTML = Object.keys(FL).map(f=>'<button class="sw'+(f===p.flav?' on':'')+'" data-sw="'+p.fam+'-'+f+'"><i style="background:'+FL[f].c+'"></i>'+FL[f].n+'</button>').join("");
+    document.querySelectorAll("#pFlavs [data-sw]").forEach(b=>b.addEventListener("click",()=>openProduct(b.dataset.sw)));
+  }
+  if(p.flav && p.flav!=="all"){ const n=FL[p.flav].i; $("#pMeter").innerHTML = Array.from({length:9},(_,i)=>'<i class="'+(i<n?'on':'')+'"></i>').join("")+'<span>'+n+' von 9</span>'; }
+  document.querySelectorAll("[data-abo]").forEach(b=>b.classList.toggle("on",b.dataset.abo==="0"));
+  $("#pDetails").innerHTML = p.det.map(([k,v])=>'<dt>'+k+'</dt><dd>'+v+'</dd>').join("");
+  updatePrice(); $("#qVal").textContent=qty;
+}
+function updatePrice(){ $("#pPrice").textContent = eur(cur.price) + (abo?" / Monat":""); $("#addBtn").textContent = abo ? "Club-Abo starten" : "In den Warenkorb"; }
+document.querySelectorAll("[data-abo]").forEach(b=>b.addEventListener("click",()=>{abo=b.dataset.abo==="1";document.querySelectorAll("[data-abo]").forEach(x=>x.classList.toggle("on",x===b));updatePrice();}));
+$("#qMinus").addEventListener("click",()=>{qty=Math.max(1,qty-1);$("#qVal").textContent=qty;});
+$("#qPlus").addEventListener("click",()=>{qty=Math.min(20,qty+1);$("#qVal").textContent=qty;});
+$("#addBtn").addEventListener("click",()=>{ addToCart(cur.id, qty, abo, true); });
+
+function addToCart(id,n,isAbo,open){
+  const key=id+(isAbo?"|abo":""); const l=cart.find(x=>x.key===key);
+  if(l) l.q=Math.min(20,l.q+n); else cart.push({key,id,q:n,abo:!!isAbo});
+  save(); renderCart(); toast(P[id].short+(isAbo?" im Club-Abo":"")+" liegt im Warenkorb"); if(open) openCart();
+}
+function totals(){ const sub=cart.reduce((s,l)=>s+P[l.id].price*l.q,0); const ship = sub===0||sub>=49 ? 0 : 4.9; return {sub,ship,total:sub+ship}; }
+function renderCart(){
+  const n=cart.reduce((s,l)=>s+l.q,0); const c=$("#cartCount"); c.textContent=n; c.dataset.n=n;
+  const {sub}=totals();
+  if(!cart.length){
+    $("#items").innerHTML='<div class="empty"><p>Ihr Warenkorb ist leer.</p><a class="btn dark" href="#shop" id="emptyShop">Zur Kollektion</a></div>';
+    $("#dfoot").hidden=true; const e=$("#emptyShop"); if(e) e.addEventListener("click",closeCart);
+  } else {
+    $("#dfoot").hidden=false;
+    $("#items").innerHTML = cart.map((l,i)=>{const p=P[l.id];return '<div class="item"><div class="th"><img src="'+A[p.img]+'" alt=""></div><div><h4>'+p.short+'</h4><div class="v">'+p.sub+(l.abo?' · monatlich':'')+'</div><div class="qty" style="margin-top:8px"><button data-dec="'+i+'" aria-label="Weniger">−</button><output>'+l.q+'</output><button data-inc="'+i+'" aria-label="Mehr">+</button></div><button class="rm" data-rm="'+i+'">Entfernen</button></div><span class="price">'+eur(p.price*l.q)+'</span></div>';}).join("");
+    document.querySelectorAll("[data-dec]").forEach(b=>b.addEventListener("click",()=>{const l=cart[+b.dataset.dec]; l.q--; if(l.q<1) cart.splice(+b.dataset.dec,1); save(); renderCart();}));
+    document.querySelectorAll("[data-inc]").forEach(b=>b.addEventListener("click",()=>{const l=cart[+b.dataset.inc]; l.q=Math.min(20,l.q+1); save(); renderCart();}));
+    document.querySelectorAll("[data-rm]").forEach(b=>b.addEventListener("click",()=>{cart.splice(+b.dataset.rm,1); save(); renderCart();}));
+  }
+  $("#subtotal").textContent=eur(sub);
+  const rest=Math.max(0,49-sub);
+  $("#shipNote").textContent = sub===0 ? "Versandkostenfrei ab 49 €" : (rest>0 ? "Noch "+eur(rest)+" bis zum kostenlosen Versand" : "Ihre Bestellung wird kostenlos versendet");
+  $("#shipBar").style.width = Math.min(100, sub/49*100)+"%";
+  renderSummary();
+}
+function renderSummary(){
+  const {sub,ship,total}=totals();
+  $("#osLines").innerHTML = cart.length ? cart.map(l=>{const p=P[l.id];return '<div class="oline"><span>'+l.q+' × '+p.short+(l.abo?' (Abo)':'')+'</span><span>'+eur(p.price*l.q)+'</span></div>';}).join("") : '<p class="muted">Noch nichts ausgewählt.</p>';
+  $("#osSub").textContent=eur(sub); $("#osShip").textContent= ship? eur(ship) : "kostenlos"; $("#osTotal").textContent=eur(total);
+}
+
+const drawer=$("#drawer"), scrim=$("#scrim");
+function openCart(){ scrim.hidden=false; requestAnimationFrame(()=>{scrim.classList.add("open");drawer.classList.add("open");}); drawer.setAttribute("aria-hidden","false"); }
+function closeCart(){ scrim.classList.remove("open"); drawer.classList.remove("open"); drawer.setAttribute("aria-hidden","true"); setTimeout(()=>{scrim.hidden=true;},300); }
+$("#cartBtn").addEventListener("click",openCart); $("#closeCart").addEventListener("click",closeCart); scrim.addEventListener("click",closeCart); $("#keepShopping").addEventListener("click",closeCart);
+$("#toCheckout").addEventListener("click",()=>{closeCart(); location.hash="kasse";});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){ closeCart(); $("#modal").hidden=true; } });
+$("#coForm").addEventListener("submit",e=>{ e.preventDefault(); if(!cart.length){ toast("Ihr Warenkorb ist leer"); return; } $("#modal").hidden=false; $("#mClose").focus(); });
+$("#mClose").addEventListener("click",()=>{ $("#modal").hidden=true; cart=[]; save(); renderCart(); location.hash="home"; });
+$("#newsForm").addEventListener("submit",e=>{ e.preventDefault(); toast("Demo: Es wurde keine Anmeldung gespeichert"); });
+$("#searchBtn").addEventListener("click",()=>toast("Suche ist in der Demo nicht aktiv"));
+$("#accBtn").addEventListener("click",()=>toast("Kundenkonto ist in der Demo nicht aktiv"));
+
+let tt; function toast(t){ const el=$("#toast"); el.textContent=t; el.classList.add("show"); clearTimeout(tt); tt=setTimeout(()=>el.classList.remove("show"),2600); }
+
+document.addEventListener("click",e=>{
+  const q=e.target.closest("[data-quick]"); if(q){ e.preventDefault(); addToCart(q.dataset.quick,1,false,false); return; }
+  const o=e.target.closest("[data-open]"); if(o){ e.preventDefault(); openProduct(o.dataset.open); return; }
+  const g=e.target.closest("[data-go]"); if(g){ location.hash=g.dataset.go; }
+});
+const mb=$("#menuBtn"), mn=$("#mnav");
+mb.addEventListener("click",()=>{ const open=mn.hidden; mn.hidden=!open; mb.setAttribute("aria-expanded",String(open)); });
+
+function route(){
+  let h=(location.hash||"#home").slice(1); let view=h, pid=null;
+  if(h.startsWith("p-")){ view="product"; pid=h.slice(2); }
+  if(!document.querySelector('[data-view="'+view+'"]')) view="home";
+  document.querySelectorAll(".view").forEach(v=>v.hidden = v.dataset.view!==view);
+  document.querySelectorAll("[data-nav]").forEach(a=>a.classList.toggle("on", a.dataset.nav===view));
+  if(view==="shop") renderShop();
+  if(view==="product") renderProduct(pid);
+  if(view==="kasse") renderSummary();
+  mn.hidden=true; mb.setAttribute("aria-expanded","false");
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+renderCart(); route();
+})();
+</script>
+</body>
+</html>
