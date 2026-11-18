@@ -9,6 +9,7 @@ Die Seite ist rein statisch (HTML, CSS, JavaScript). Warenkorb und Kasse sind nu
 - `index.html`: Startseite, Kollektion, Produktseiten, Ritual, Flasche & Starter Set, Club, Warenkorb, Kasse (Navigation über `#`-Anker)
 - `images/`: freigestellte Produktbilder (`.webp`) und Kampagnenbilder (`.jpg`)
 - `favicon.svg`: TORSÉ-Monogramm
+- `vermeil/`: Demo-Webshop der zweiten Marke VERMEIL (Krone und Kapseln), erreichbar unter `/vermeil`. Eigene Marke, nur vorläufig hier gehostet.
 - `vercel.json`: saubere URLs und Caching für Bilder
 
 ## Auf Vercel veröffentlichen

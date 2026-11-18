@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="VERMEIL – die Krone aus Vermeil-Gold für stilles Wasser und Kapseln mit Ceremonial-Matcha, Yuzu und Sakura. Gekrönt.">
+<meta name="theme-color" content="#0a101c">
+<link rel="icon" href="/vermeil/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="VERMEIL Maison">
+<meta property="og:description" content="Gekrönt. Die Krone für stilles Wasser.">
+<meta property="og:image" content="/vermeil/images/hero.jpg">
+<title>VERMEIL Maison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Manrope:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dunkle Bühne wie eine Uhrmacher-Vitrine, Haarlinien in Vermeil, Ziffern I–IV als Führung */
+:root { 
+  --nuit:#0e1626; --nuit2:#0a101c; --nuit3:#16213a; --line:#2a3550;
+  --vermeil:#c49a55; --vermeil2:#e2c891; --ivoire:#f3eee4; --ivoire2:#e9e2d4; --ardoise:#8a93a6; --ink:#121826;
+  --jade:#1f4a36; --ocre:#c99a1e; --rose:#c98a92;
+  --f-d:"Cinzel", "Trajan Pro", Georgia, serif; --f-b:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; --f-m:"DM Mono", ui-monospace, Menlo, monospace;
+ color-scheme: dark; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--nuit2); color: var(--ivoire); font-family: var(--f-b); font-size: 15.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body::before { content:""; position:fixed; inset:0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--nuit2); z-index: 30; }
+a { color: inherit; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-d); font-weight: 500; letter-spacing: .08em; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(26px, 3.4vw, 40px); }
+h3 { font-size: 19px; letter-spacing: .06em; }
+p { margin: 0; color: #c9cdd6; max-width: 60ch; }
+.mono { font-family: var(--f-m); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--vermeil); }
+.btn { font: 500 13px/1 var(--f-b); letter-spacing: .14em; text-transform: uppercase; padding: 15px 22px; border-radius: 0; cursor: pointer; border: 1px solid var(--vermeil); background: transparent; color: var(--vermeil2); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+.btn.gold { background: var(--vermeil); color: var(--nuit2); }
+.btn:hover { background: var(--vermeil2); color: var(--nuit2); }
+.btn:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--vermeil2); outline-offset: 3px; }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(10,16,28,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.hbar { display: flex; align-items: center; gap: 28px; height: 68px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--vermeil); }
+.brand svg { width: 34px; height: 34px; }
+.brand span { font-family: var(--f-d); font-size: 19px; letter-spacing: .32em; color: var(--ivoire); }
+nav.main { display: flex; gap: 26px; margin-left: auto; }
+nav.main a { text-decoration: none; font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; color: #c9cdd6; }
+nav.main a:hover { color: var(--vermeil2); }
+.cartbtn { background: none; border: 1px solid var(--line); color: var(--ivoire); padding: 9px 14px; font: 500 12px var(--f-m); letter-spacing: .12em; cursor: pointer; }
+.cartbtn b { color: var(--vermeil); font-weight: 500; }
+.hero { position: relative; border-bottom: 1px solid var(--line); }
+.hero img { width: 100%; aspect-ratio: 21/9; object-fit: cover; display: block; }
+.hero .copy { position: absolute; inset: 0; display: flex; align-items: center; }
+.hero .copy .wrap { width: 100%; }
+.hero .inner { max-width: 520px; display: grid; gap: 20px; }
+.hero h1 { font-size: clamp(44px, 7vw, 92px); letter-spacing: .12em; color: var(--ivoire); }
+.hero p { font-size: 17px; color: #d6d9e0; }
+.ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid var(--line); }
+.facts div { padding: 22px 0; display: grid; gap: 4px; border-right: 1px solid var(--line); padding-left: 22px; }
+.facts div:last-child { border-right: 0; }
+.facts b { font-family: var(--f-m); font-weight: 400; font-size: 22px; color: var(--vermeil2); font-variant-numeric: tabular-nums; }
+.facts span { font-size: 12.5px; color: var(--ardoise); }
+section.blk { padding-block: 88px; border-bottom: 1px solid var(--line); }
+.head { display: grid; gap: 12px; margin-bottom: 40px; }
+.ritual { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.ritual figure { margin: 0; border: 1px solid var(--line); background: var(--nuit); }
+.ritual figure img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.steps { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.step { display: grid; grid-template-columns: 56px 1fr; align-items: center; gap: 12px; padding: 18px 0; background: none; border: 0; border-bottom: 1px solid var(--line); color: #9aa2b4; cursor: pointer; text-align: left; font: inherit; }
+.step .num { font-family: var(--f-d); font-size: 26px; color: var(--ardoise); }
+.step .t { font-family: var(--f-d); font-size: 18px; letter-spacing: .1em; }
+.step.on .num, .step.on .t { color: var(--vermeil2); }
+#stepText { margin-top: 22px; min-height: 5.5em; }
+.anat { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
+.anat img { width: 100%; border: 1px solid var(--line); display: block; }
+.anat ol { list-style: none; margin: 0; padding: 0; display: grid; }
+.anat li { display: grid; grid-template-columns: 44px 1fr; gap: 10px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.anat li span { font-family: var(--f-m); color: var(--vermeil); }
+.anat li b { font-weight: 500; color: var(--ivoire); }
+.anat li em { font-style: normal; color: #9aa2b4; font-size: 14px; display: block; }
+.cals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.cal { background: var(--nuit); border: 1px solid var(--line); padding: 26px 24px 24px; display: grid; gap: 12px; position: relative; align-content: start; }
+.cal .band { position: absolute; inset: 0 0 auto; height: 4px; background: var(--c); }
+.meter { display: flex; gap: 4px; }
+.meter i { width: 16px; height: 3px; background: var(--line); }
+.meter i.on { background: var(--vermeil); }
+.cal dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 13.5px; }
+.cal dt { color: var(--ardoise); } .cal dd { margin: 0; color: #c9cdd6; }
+.capsfig { margin: 34px 0 0; border: 1px solid var(--line); } .capsfig img { width: 100%; display: block; }
+.prods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.prod { background: var(--nuit); border: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); min-width: 0; }
+.prod:first-child { grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.pimg { background: #05080f; display: grid; place-items: center; min-height: 100%; }
+.pimg img { width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4/5; }
+.pimg.light { background: radial-gradient(circle at 50% 45%, #2b3550, #0a101c 70%); }
+.pimg.light img { object-fit: contain; padding: 18%; }
+.pbody { padding: 26px 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.specs { margin: 4px 0 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.specs div { display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+.specs dt { color: var(--ardoise); } .specs dd { margin: 0; font-family: var(--f-m); font-size: 12.5px; color: #d6d9e0; }
+.flav { display: flex; gap: 8px; flex-wrap: wrap; }
+.fc { display: inline-flex; align-items: center; gap: 8px; background: none; border: 1px solid var(--line); color: #c9cdd6; padding: 7px 12px; font: 500 12px var(--f-m); letter-spacing: .1em; cursor: pointer; }
+.fc i { width: 10px; height: 10px; background: var(--c); display: inline-block; }
+.fc.on { border-color: var(--vermeil); color: var(--vermeil2); }
+.buy { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px; flex-wrap: wrap; }
+.price { font-family: var(--f-m); font-size: 20px; color: var(--ivoire); font-variant-numeric: tabular-nums; }
+.club { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.club ul { margin: 0; padding: 0; list-style: none; display: grid; }
+.club li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; }
+.club li span { color: #c9cdd6; } .club li b { font-family: var(--f-m); font-weight: 400; color: var(--vermeil2); }
+.club img { width: 100%; border: 1px solid var(--line); display: block; }
+.prec { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+.prec figure { margin: 0; border: 1px solid var(--line); background: var(--nuit); } .prec img { width: 100%; display: block; }
+.prec figcaption { padding: 12px 16px; font-size: 13px; color: #9aa2b4; }
+footer.site { padding-block: 48px 64px; color: var(--ardoise); font-size: 13px; }
+.fgrid { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); background: var(--nuit); border-left: 1px solid var(--line); z-index: 40; transform: translateX(100%); transition: transform .3s ease; display: grid; grid-template-rows: auto 1fr auto; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); }
+.drawer.open { transform: none; }
+.dh { display: flex; justify-content: space-between; align-items: center; padding: 20px 22px; border-bottom: 1px solid var(--line); }
+.dh h2 { font-size: 20px; }
+.x { background: none; border: 0; color: var(--ivoire); font-size: 22px; cursor: pointer; }
+.items { overflow-y: auto; padding: 8px 22px; }
+.it { display: grid; grid-template-columns: 1fr auto; gap: 6px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.it small { color: var(--ardoise); display: block; }
+.q { display: flex; gap: 8px; align-items: center; } .q button { width: 28px; height: 28px; background: none; border: 1px solid var(--line); color: var(--ivoire); cursor: pointer; }
+.df { padding: 20px 22px; border-top: 1px solid var(--line); display: grid; gap: 12px; }
+.sum { display: flex; justify-content: space-between; font-family: var(--f-m); }
+.scrim { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 35; }
+.modal { position: fixed; inset: 0; display: grid; place-items: center; z-index: 50; background: rgba(0,0,0,.6); padding: 20px; }
+.modal .box { background: var(--nuit); border: 1px solid var(--vermeil); padding: 36px 30px; max-width: 420px; display: grid; gap: 14px; text-align: center; justify-items: center; color: var(--vermeil); }
+.modal .box svg { width: 64px; height: 64px; }
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--vermeil); color: var(--nuit2); padding: 12px 18px; font: 500 13px var(--f-b); letter-spacing: .06em; opacity: 0; transition: .25s; z-index: 60; pointer-events: none; }
+.toast.show { opacity: 1; transform: translateX(-50%); }
+.demo { background: var(--vermeil); color: var(--nuit2); text-align: center; font: 500 11.5px var(--f-m); letter-spacing: .12em; padding: 7px 12px; text-transform: uppercase; }
+@media (max-width: 900px) {
+  nav.main { display: none; } .cartbtn { margin-left: auto; }
+  .hero img { aspect-ratio: 4/5; object-position: 72% 50%; }
+  .hero .copy { align-items: flex-end; padding-bottom: 28px; background: linear-gradient(transparent 35%, rgba(10,16,28,.85)); }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .facts div:nth-child(2) { border-right: 0; }
+  .ritual, .anat, .club, .prec { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .cals { grid-template-columns: minmax(0, 1fr); }
+  .prods, .prod, .prod:first-child { grid-template-columns: minmax(0, 1fr); }
+  .pimg img { aspect-ratio: 4/3; }
+  section.blk { padding-block: 60px; }
+}
+@media (prefers-reduced-motion: reduce) { .drawer, .toast { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="demo">Demo-Shop · keine echten Bestellungen</div>
+<header class="top"><div class="wrap hbar">
+  <a class="brand" href="#top" aria-label="VERMEIL Start"><svg class="vmono" viewBox="0 0 120 120" role="img" aria-label="VERMEIL Monogramm"><g fill="none" stroke="currentColor" stroke-linejoin="miter"><polygon points="114.09,74.49 99.60,99.60 74.49,114.09 45.51,114.09 20.40,99.60 5.91,74.49 5.91,45.51 20.40,20.40 45.51,5.91 74.49,5.91 99.60,20.40 114.09,45.51" stroke-width="1.1"/><polygon points="108.30,72.94 95.36,95.36 72.94,108.30 47.06,108.30 24.64,95.36 11.70,72.94 11.70,47.06 24.64,24.64 47.06,11.70 72.94,11.70 95.36,24.64 108.30,47.06" stroke-width="0.7"/><g stroke-width="0.7"><line x1="114.09" y1="74.49" x2="108.30" y2="72.94"/><line x1="99.60" y1="99.60" x2="95.36" y2="95.36"/><line x1="74.49" y1="114.09" x2="72.94" y2="108.30"/><line x1="45.51" y1="114.09" x2="47.06" y2="108.30"/><line x1="20.40" y1="99.60" x2="24.64" y2="95.36"/><line x1="5.91" y1="74.49" x2="11.70" y2="72.94"/><line x1="5.91" y1="45.51" x2="11.70" y2="47.06"/><line x1="20.40" y1="20.40" x2="24.64" y2="24.64"/><line x1="45.51" y1="5.91" x2="47.06" y2="11.70"/><line x1="74.49" y1="5.91" x2="72.94" y2="11.70"/><line x1="99.60" y1="20.40" x2="95.36" y2="24.64"/><line x1="114.09" y1="45.51" x2="108.30" y2="47.06"/></g></g><g fill="currentColor"><path d="M33 44 L41 44 L60 86 L79 44 L87 44 L62.2 96 L57.8 96 Z"/><path d="M45 37 L50 30 L55 35.5 L60 26 L65 35.5 L70 30 L75 37 L74 40 L46 40 Z"/><circle cx="50" cy="28.2" r="1.6"/><circle cx="60" cy="23.8" r="1.8"/><circle cx="70" cy="28.2" r="1.6"/></g></svg><span>VERMEIL</span></a>
+  <nav class="main" aria-label="Hauptnavigation"><a href="#ritual">Das Ritual</a><a href="#krone">Die Krone</a><a href="#calibres">Calibres</a><a href="#kollektion">Kollektion</a><a href="#club">Club</a></nav>
+  <button class="cartbtn" id="cartBtn" aria-label="Warenkorb öffnen">Warenkorb <b id="cnt">0</b></button>
+</div></header>
+
+<main id="top">
+<section class="hero">
+  <img src="/vermeil/images/hero.jpg" alt="Glasflasche mit der goldenen VERMEIL-Krone und drei Kapseln auf dunklem Stein">
+  <div class="copy"><div class="wrap"><div class="inner">
+    <span class="mono">Maison VERMEIL · Für stilles Wasser</span>
+    <h1>Gekrönt.</h1>
+    <p>Eine Krone aus Vermeil-Gold für jede Flasche stilles Wasser, dazu Kapseln mit Ceremonial-Matcha, Yuzu und Sakura. Einlegen, schließen, drücken.</p>
+    <div class="ctas"><a class="btn gold" href="#kollektion">La Couronne · 69 €</a><a class="btn" href="#ritual">Das Ritual</a></div>
+  </div></div></div>
+</section>
+<div class="wrap facts">
+  <div><b>Ø 44 mm</b><span>Krone aus Aluminium in Gold</span></div>
+  <div><b>4,5 mm</b><span>Hub beim Drücken</span></div>
+  <div><b>26/22</b><span>Gewinde für 0,33–0,5 l</span></div>
+  <div><b>100 % Alu</b><span>Kapsel in die Metallsammlung</span></div>
+</div>
+
+<section class="blk" id="ritual"><div class="wrap ritual">
+  <figure><img id="stepImg" src="/vermeil/images/open.jpg" alt="Ritual Schritt I: Öffnen"></figure>
+  <div>
+    <div class="head"><span class="mono">Das Ritual</span><h2>Vier Gesten</h2></div>
+    <div class="steps" role="tablist" aria-label="Schritte"><button class="step on" role="tab" aria-selected="true" data-step="0"><span class="num">I</span><span class="t">Öffnen</span></button><button class="step" role="tab" aria-selected="false" data-step="1"><span class="num">II</span><span class="t">Einlegen</span></button><button class="step" role="tab" aria-selected="false" data-step="2"><span class="num">III</span><span class="t">Schließen</span></button><button class="step" role="tab" aria-selected="false" data-step="3"><span class="num">IV</span><span class="t">Krönen</span></button></div>
+    <p id="stepText">Lasche lösen, die Haube klappt auf. Der Öffner darunter bleibt gesperrt und verdeckt.</p>
+  </div>
+</div></section>
+
+<section class="blk" id="krone"><div class="wrap anat">
+  <img src="/vermeil/images/cut.jpg" alt="Schnittmodell der Krone mit Kapsel auf der Flasche">
+  <div>
+    <div class="head"><span class="mono">La Couronne</span><h2>Gebaut wie ein Uhrwerk</h2><p>Haube und Unterteil aus Aluminium in Champagner-Gold, nur graviert. Im Inneren arbeiten elf Teile, damit die Kapsel genau einmal und sicher geöffnet wird.</p></div>
+    <ol>
+      <li><span>01</span><div><b>Haube mit Druckring</b><em>trägt die Kapsel und drückt auf ihren Rand</em></div></li>
+      <li><span>02</span><div><b>Kapsel</b><em>Ø 37 × 28 mm, reines Aluminium, Folie nach unten</em></div></li>
+      <li><span>03</span><div><b>Federdeckel mit Sperre</b><em>verdeckt den Öffner, gesperrt solange die Haube offen ist</em></div></li>
+      <li><span>04</span><div><b>Öffner</b><em>stumpfe Rippen öffnen die geritzte Folie</em></div></li>
+      <li><span>05</span><div><b>Unterteil mit Gewinde 26/22</b><em>passt auf die üblichen Flaschen stilles Wasser</em></div></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="blk" id="calibres"><div class="wrap">
+  <div class="head"><span class="mono">Les Calibres</span><h2>Drei Kapseln, drei Charaktere</h2><p>Gold oben und unten, die geriffelte Seite in der Farbe der Sorte. Die Intensität steht auf jeder Box.</p></div>
+  <div class="cals"><article class="cal" style="--c:#1f4a36"><span class="band"></span><span class="mono">Calibre I</span><h3>Uji Matcha</h3><p>Ceremonial-Grade-Matcha aus Uji, erste Ernte, steingemahlen. Umami, frisches Gras, süßer Nachklang.</p><span class="meter" aria-label="Intensität 8 von 9"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><dl><dt>Füllung</dt><dd>1,5 g Matcha, 1000 Mesh</dd></dl></article><article class="cal" style="--c:#c99a1e"><span class="band"></span><span class="mono">Calibre II</span><h3>Yuzu &amp; Ingwer</h3><p>Japanische Yuzu mit einem Hauch Ingwer, ohne Zucker. Hell, zitrisch, belebend.</p><span class="meter" aria-label="Intensität 5 von 9"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span><dl><dt>Füllung</dt><dd>3 g Yuzu-Saftpulver, Ingwer, Vitamin C</dd></dl></article><article class="cal" style="--c:#c98a92"><span class="band"></span><span class="mono">Calibre III</span><h3>Sakura</h3><p>Kirschblüte und Hibiskus mit Kollagenpeptiden. Zart blumig, färbt das Wasser rosé.</p><span class="meter" aria-label="Intensität 3 von 9"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></span><dl><dt>Füllung</dt><dd>2,5 g Kollagen, Hibiskus, Sakura-Aroma</dd></dl></article></div>
+  <figure class="capsfig"><img src="/vermeil/images/caps.jpg" alt="Die drei VERMEIL-Kapseln in Jade, Ocker und Rosé mit goldenem Dach"></figure>
+</div></section>
+
+<section class="blk" id="kollektion"><div class="wrap">
+  <div class="head"><span class="mono">Kollektion</span><h2>Krone, Coffret, Calibres</h2></div>
+  <div class="prods"><article class="prod" data-id="couronne" data-name="La Couronne" data-price="69"><div class="pimg"><img src="/vermeil/images/box_crown.jpg" alt="La Couronne"></div><div class="pbody"><span class="mono">Die Krone aus Vermeil-Gold</span><h3>La Couronne</h3><p>Der wiederverwendbare Aufsatz für jede Flasche stilles Wasser. Aluminium in Champagner-Gold, nur graviert. Einmal gekauft, jahrelang benutzt.</p><dl class="specs"><div><dt>Maße</dt><dd>Ø 44 × 58,8 mm</dd></div><div><dt>Passt auf</dt><dd>Hals 26/22, 0,33–0,5 l, still</dd></div><div><dt>Im Club</dt><dd>29 € zum Start</dd></div></dl><div class="buy"><span class="price">69,00 €</span><button class="btn gold add">In den Warenkorb</button></div></div></article><article class="prod" data-id="coffret" data-name="Le Coffret" data-price="89"><div class="pimg"><img src="/vermeil/images/box_set.jpg" alt="Le Coffret"></div><div class="pbody"><span class="mono">Krone und Glasflasche</span><h3>Le Coffret</h3><p>Die Krone und die VERMEIL-Flasche aus dickem Glas in der nachtblauen Box. Die Flasche gibt es nur hier.</p><dl class="specs"><div><dt>Inhalt</dt><dd>1 Krone, 1 Flasche 500 ml</dd></div><div><dt>Flasche</dt><dd>22,5 cm, Ø 5,8 cm</dd></div><div><dt>Einzeln</dt><dd>98 €</dd></div></dl><div class="buy"><span class="price">89,00 €</span><button class="btn gold add">In den Warenkorb</button></div></div></article><article class="prod" data-id="calibre10" data-name="Calibre · 10" data-price="22"><div class="pimg"><img src="/vermeil/images/box_10.jpg" alt="Calibre · 10"></div><div class="pbody"><span class="mono">Zehn Kapseln einer Sorte</span><h3>Calibre · 10</h3><p>Zehn Kapseln in der Schubladenbox. Gold oben und unten, die Seite in der Farbe der Sorte.</p><dl class="specs"><div><dt>Inhalt</dt><dd>10 Kapseln</dd></div><div><dt>Preis</dt><dd>2,20 € pro Kapsel</dd></div><div><dt>Kapsel</dt><dd>Ø 37 × 28 mm, reines Aluminium</dd></div></dl><div class="flav" role="group" aria-label="Sorte"><button class="fc on" data-f="I" style="--c:#1f4a36" aria-pressed="true"><i></i>I</button><button class="fc" data-f="II" style="--c:#c99a1e" aria-pressed="false"><i></i>II</button><button class="fc" data-f="III" style="--c:#c98a92" aria-pressed="false"><i></i>III</button></div><div class="buy"><span class="price">22,00 €</span><button class="btn gold add">In den Warenkorb</button></div></div></article><article class="prod" data-id="calibre30" data-name="Calibre · 30" data-price="54"><div class="pimg"><img src="/vermeil/images/box_30.jpg" alt="Calibre · 30"></div><div class="pbody"><span class="mono">Dreißig Kapseln, auch im Club</span><h3>Calibre · 30</h3><p>Die große Box für jeden Tag. Im Club kommt sie jeden Monat, jederzeit pausierbar.</p><dl class="specs"><div><dt>Inhalt</dt><dd>30 Kapseln</dd></div><div><dt>Preis</dt><dd>1,80 € pro Kapsel</dd></div><div><dt>Club</dt><dd>monatlich, versandkostenfrei</dd></div></dl><div class="flav" role="group" aria-label="Sorte"><button class="fc on" data-f="I" style="--c:#1f4a36" aria-pressed="true"><i></i>I</button><button class="fc" data-f="II" style="--c:#c99a1e" aria-pressed="false"><i></i>II</button><button class="fc" data-f="III" style="--c:#c98a92" aria-pressed="false"><i></i>III</button></div><div class="buy"><span class="price">54,00 €</span><button class="btn gold add">In den Warenkorb</button></div></div></article><article class="prod" data-id="bouchon" data-name="Le Bouchon" data-price="19"><div class="pimg light"><img src="/vermeil/images/bouchon.webp" alt="Le Bouchon"></div><div class="pbody"><span class="mono">Schraubverschluss für die Flasche</span><h3>Le Bouchon</h3><p>Ein schlichter goldener Verschluss, damit die VERMEIL-Flasche auch ohne Krone dicht bleibt.</p><dl class="specs"><div><dt>Maße</dt><dd>Ø 30 × 20 mm</dd></div><div><dt>Gewinde</dt><dd>26/22</dd></div><div><dt>Material</dt><dd>Aluminium, Silikon</dd></div></dl><div class="buy"><span class="price">19,00 €</span><button class="btn gold add">In den Warenkorb</button></div></div></article></div>
+</div></section>
+
+<section class="blk" id="club"><div class="wrap club">
+  <div>
+    <div class="head"><span class="mono">Club VERMEIL</span><h2>Jeden Monat gekrönt</h2><p>Ihre Sorte kommt jeden Monat in der großen Box. Zum Start gibt es die Krone für 29 €.</p></div>
+    <ul><li><span>Calibre · 30 im Monat</span><b>54 €</b></li><li><span>Krone zum Start</span><b>29 €</b></li><li><span>Versand</span><b>frei</b></li><li><span>Pausieren oder wechseln</span><b>jederzeit</b></li></ul>
+    <div class="ctas" style="margin-top:24px"><button class="btn gold" data-add="calibre30">Club starten</button></div>
+  </div>
+  <img src="/vermeil/images/crowncaps.jpg" alt="Drei Kapseln neben der goldenen Krone">
+</div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="head"><span class="mono">Präzision</span><h2>Jedes Maß zählt</h2></div>
+  <div class="prec">
+    <figure><img src="/vermeil/images/topbot.jpg" alt="Krone von oben und von unten"><figcaption>Oben das gravierte Monogramm, unten das Gewinde 26/22 mit Dichtstopfen.</figcaption></figure>
+    <figure><img src="/vermeil/images/states.jpg" alt="Krone vor und nach dem Drücken"><figcaption>Vor und während des Drückens: 4,5 mm Hub, danach federt die Krone zurück.</figcaption></figure>
+  </div>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap fgrid"><a class="brand" href="#top"><svg class="vmono" viewBox="0 0 120 120" role="img" aria-label="VERMEIL Monogramm"><g fill="none" stroke="currentColor" stroke-linejoin="miter"><polygon points="114.09,74.49 99.60,99.60 74.49,114.09 45.51,114.09 20.40,99.60 5.91,74.49 5.91,45.51 20.40,20.40 45.51,5.91 74.49,5.91 99.60,20.40 114.09,45.51" stroke-width="1.1"/><polygon points="108.30,72.94 95.36,95.36 72.94,108.30 47.06,108.30 24.64,95.36 11.70,72.94 11.70,47.06 24.64,24.64 47.06,11.70 72.94,11.70 95.36,24.64 108.30,47.06" stroke-width="0.7"/><g stroke-width="0.7"><line x1="114.09" y1="74.49" x2="108.30" y2="72.94"/><line x1="99.60" y1="99.60" x2="95.36" y2="95.36"/><line x1="74.49" y1="114.09" x2="72.94" y2="108.30"/><line x1="45.51" y1="114.09" x2="47.06" y2="108.30"/><line x1="20.40" y1="99.60" x2="24.64" y2="95.36"/><line x1="5.91" y1="74.49" x2="11.70" y2="72.94"/><line x1="5.91" y1="45.51" x2="11.70" y2="47.06"/><line x1="20.40" y1="20.40" x2="24.64" y2="24.64"/><line x1="45.51" y1="5.91" x2="47.06" y2="11.70"/><line x1="74.49" y1="5.91" x2="72.94" y2="11.70"/><line x1="99.60" y1="20.40" x2="95.36" y2="24.64"/><line x1="114.09" y1="45.51" x2="108.30" y2="47.06"/></g></g><g fill="currentColor"><path d="M33 44 L41 44 L60 86 L79 44 L87 44 L62.2 96 L57.8 96 Z"/><path d="M45 37 L50 30 L55 35.5 L60 26 L65 35.5 L70 30 L75 37 L74 40 L46 40 Z"/><circle cx="50" cy="28.2" r="1.6"/><circle cx="60" cy="23.8" r="1.8"/><circle cx="70" cy="28.2" r="1.6"/></g></svg><span>VERMEIL</span></a><span>Konzept und Demo-Shop · Bilder sind KI-Entwürfe · Für stilles Wasser</span></div></footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Warenkorb" aria-hidden="true">
+  <div class="dh"><h2>Warenkorb</h2><button class="x" id="closeCart" aria-label="Warenkorb schließen">×</button></div>
+  <div class="items" id="items"></div>
+  <div class="df"><div class="sum"><span>Summe</span><span id="sum">0,00 €</span></div><button class="btn gold" id="checkout">Zur Kasse</button></div>
+</aside>
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mt"><div class="box"><svg class="vmono" viewBox="0 0 120 120" role="img" aria-label="VERMEIL Monogramm"><g fill="none" stroke="currentColor" stroke-linejoin="miter"><polygon points="114.09,74.49 99.60,99.60 74.49,114.09 45.51,114.09 20.40,99.60 5.91,74.49 5.91,45.51 20.40,20.40 45.51,5.91 74.49,5.91 99.60,20.40 114.09,45.51" stroke-width="1.1"/><polygon points="108.30,72.94 95.36,95.36 72.94,108.30 47.06,108.30 24.64,95.36 11.70,72.94 11.70,47.06 24.64,24.64 47.06,11.70 72.94,11.70 95.36,24.64 108.30,47.06" stroke-width="0.7"/><g stroke-width="0.7"><line x1="114.09" y1="74.49" x2="108.30" y2="72.94"/><line x1="99.60" y1="99.60" x2="95.36" y2="95.36"/><line x1="74.49" y1="114.09" x2="72.94" y2="108.30"/><line x1="45.51" y1="114.09" x2="47.06" y2="108.30"/><line x1="20.40" y1="99.60" x2="24.64" y2="95.36"/><line x1="5.91" y1="74.49" x2="11.70" y2="72.94"/><line x1="5.91" y1="45.51" x2="11.70" y2="47.06"/><line x1="20.40" y1="20.40" x2="24.64" y2="24.64"/><line x1="45.51" y1="5.91" x2="47.06" y2="11.70"/><line x1="74.49" y1="5.91" x2="72.94" y2="11.70"/><line x1="99.60" y1="20.40" x2="95.36" y2="24.64"/><line x1="114.09" y1="45.51" x2="108.30" y2="47.06"/></g></g><g fill="currentColor"><path d="M33 44 L41 44 L60 86 L79 44 L87 44 L62.2 96 L57.8 96 Z"/><path d="M45 37 L50 30 L55 35.5 L60 26 L65 35.5 L70 30 L75 37 L74 40 L46 40 Z"/><circle cx="50" cy="28.2" r="1.6"/><circle cx="60" cy="23.8" r="1.8"/><circle cx="70" cy="28.2" r="1.6"/></g></svg><h2 id="mt">Merci.</h2><p>Das war eine Demo-Bestellung. Es wurde nichts gekauft, bezahlt oder versendet.</p><button class="btn" id="mclose">Zurück</button></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+const STEPS = [{"n": "I", "t": "\u00d6ffnen", "d": "Lasche l\u00f6sen, die Haube klappt auf. Der \u00d6ffner darunter bleibt gesperrt und verdeckt.", "img": "/vermeil/images/open.jpg"}, {"n": "II", "t": "Einlegen", "d": "Die Kapsel mit dem goldenen Dach voran in die Haube legen. Die Folie zeigt nach oben.", "img": "/vermeil/images/insert.jpg"}, {"n": "III", "t": "Schlie\u00dfen", "d": "Haube zuklappen, sie rastet ein. Die Krone auf eine Flasche stilles Wasser von 0,33 bis 0,5 l schrauben.", "img": "/vermeil/images/half.jpg"}, {"n": "IV", "t": "Kr\u00f6nen", "d": "Lasche l\u00f6sen und mit der Handfl\u00e4che dr\u00fccken. Die Folie \u00f6ffnet sich, die Krone federt zur\u00fcck. Sch\u00fctteln, trinken.", "img": "/vermeil/images/press.jpg"}];
+const $ = s => document.querySelector(s);
+document.querySelectorAll(".step").forEach(b => b.addEventListener("click", () => {
+  const i = +b.dataset.step;
+  document.querySelectorAll(".step").forEach((x,j) => { x.classList.toggle("on", j===i); x.setAttribute("aria-selected", j===i ? "true" : "false"); });
+  $("#stepImg").src = STEPS[i].img; $("#stepImg").alt = "Ritual Schritt " + STEPS[i].n + ": " + STEPS[i].t; $("#stepText").textContent = STEPS[i].d;
+}));
+const eur = n => n.toFixed(2).replace(".", ",") + " €";
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem("vermeil-cart") || "[]"); } catch(e) { cart = []; }
+const save = () => { try { localStorage.setItem("vermeil-cart", JSON.stringify(cart)); } catch(e) {} };
+function render(){
+  $("#cnt").textContent = cart.reduce((s,l)=>s+l.q,0);
+  $("#items").innerHTML = cart.length ? cart.map((l,i) => '<div class="it"><div>'+l.name+'<small>'+(l.v||"")+'</small><div class="q"><button data-dec="'+i+'" aria-label="Weniger">−</button><span>'+l.q+'</span><button data-inc="'+i+'" aria-label="Mehr">+</button></div></div><span class="price" style="font-size:15px">'+eur(l.p*l.q)+'</span></div>').join("") : '<p style="padding:18px 0">Ihr Warenkorb ist leer. Beginnen Sie mit der Krone.</p>';
+  $("#sum").textContent = eur(cart.reduce((s,l)=>s+l.p*l.q,0)); save();
+}
+function add(id, name, price, v){
+  const k = id + (v||""); const f = cart.find(l => l.k===k);
+  if (f) f.q++; else cart.push({k, id, name, p:price, v, q:1});
+  render(); const t=$("#toast"); t.textContent = name + (v?" · "+v:"") + " liegt im Warenkorb"; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),1800);
+}
+document.querySelectorAll(".prod").forEach(p => {
+  p.querySelectorAll(".fc").forEach(b => b.addEventListener("click", () => { p.querySelectorAll(".fc").forEach(x => { x.classList.toggle("on", x===b); x.setAttribute("aria-pressed", x===b?"true":"false"); }); }));
+  p.querySelector(".add").addEventListener("click", () => {
+    const on = p.querySelector(".fc.on"); add(p.dataset.id, p.dataset.name, +p.dataset.price, on ? "Calibre " + on.dataset.f : "");
+  });
+});
+document.querySelectorAll("[data-add]").forEach(b => b.addEventListener("click", () => { const p = document.querySelector('.prod[data-id="'+b.dataset.add+'"]'); add(p.dataset.id, p.dataset.name + " im Club", +p.dataset.price, "Calibre I, monatlich"); open(); }));
+$("#items").addEventListener("click", e => {
+  const d = e.target.dataset; if (d.inc) cart[+d.inc].q++; else if (d.dec) { cart[+d.dec].q--; if (!cart[+d.dec].q) cart.splice(+d.dec,1); } else return; render();
+});
+const open = () => { $("#drawer").classList.add("open"); $("#drawer").setAttribute("aria-hidden","false"); $("#scrim").hidden = false; };
+const close = () => { $("#drawer").classList.remove("open"); $("#drawer").setAttribute("aria-hidden","true"); $("#scrim").hidden = true; };
+$("#cartBtn").addEventListener("click", open); $("#closeCart").addEventListener("click", close); $("#scrim").addEventListener("click", close);
+$("#checkout").addEventListener("click", () => { if (!cart.length) return; close(); $("#modal").hidden = false; cart = []; render(); });
+$("#mclose").addEventListener("click", () => { $("#modal").hidden = true; });
+document.addEventListener("keydown", e => { if (e.key==="Escape") { close(); $("#modal").hidden = true; } });
+render();
+})();
+</script>
+
+</body>
+</html>
